@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,711 +11,708 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-```
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 20px;
-        min-height: 100vh;
-    }
-    
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        overflow: hidden;
-    }
-    
-    .header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 30px;
-        text-align: center;
-    }
-    
-    .header h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
-    }
-    
-    .header p {
-        font-size: 14px;
-        opacity: 0.9;
-    }
-    
-    .main-content {
-        display: grid;
-        grid-template-columns: 350px 1fr;
-        gap: 0;
-    }
-    
-    @media (max-width: 968px) {
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
         .main-content {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 0;
         }
+        
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .controls {
+                border-right: none !important;
+                border-bottom: 1px solid #dee2e6;
+            }
+        }
+        
         .controls {
-            border-right: none !important;
-            border-bottom: 1px solid #dee2e6;
+            background: #f8f9fa;
+            padding: 30px;
+            border-right: 1px solid #dee2e6;
         }
-    }
-    
-    .controls {
-        background: #f8f9fa;
-        padding: 30px;
-        border-right: 1px solid #dee2e6;
-    }
-    
-    .visualization {
-        padding: 30px;
-    }
-    
-    .control-group {
-        margin-bottom: 25px;
-    }
-    
-    .control-group label {
-        display: block;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: #495057;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    
-    .slider-container {
-        position: relative;
-    }
-    
-    input[type="range"] {
-        width: 100%;
-        height: 6px;
-        border-radius: 3px;
-        background: #dee2e6;
-        outline: none;
-        -webkit-appearance: none;
-    }
-    
-    input[type="range"]:focus-visible {
-        outline: 2px solid #667eea;
-        outline-offset: 4px;
-        border-radius: 3px;
-    }
-    
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #667eea;
-        cursor: pointer;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    input[type="range"]::-moz-range-thumb {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #667eea;
-        cursor: pointer;
-        border: none;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    
-    .slider-value {
-        display: inline-block;
-        background: #667eea;
-        color: white;
-        padding: 4px 12px;
-        border-radius: 12px;
-        font-size: 13px;
-        font-weight: 600;
-        margin-top: 8px;
-    }
-    
-    .slider-value.warning {
-        background: #ffc107;
-        color: #000;
-    }
-    
-    .slider-value.danger {
-        background: #dc3545;
-    }
-    
-    select, input[type="number"] {
-        width: 100%;
-        padding: 10px;
-        border: 2px solid #dee2e6;
-        border-radius: 6px;
-        font-size: 14px;
-        background: white;
-        cursor: pointer;
-        font-family: inherit;
-    }
-    
-    input[type="number"]:focus, select:focus {
-        outline: none;
-        border-color: #667eea;
-    }
-    
-    .toggle-container {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    
-    .toggle {
-        position: relative;
-        width: 50px;
-        height: 26px;
-        background: #dee2e6;
-        border-radius: 13px;
-        cursor: pointer;
-        transition: background 0.3s;
-        border: none;
-        padding: 0;
-    }
-    
-    .toggle.active {
-        background: #28a745;
-    }
-    
-    .toggle:focus-visible {
-        outline: 2px solid #667eea;
-        outline-offset: 2px;
-    }
-    
-    .toggle-slider {
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 20px;
-        height: 20px;
-        background: white;
-        border-radius: 50%;
-        transition: transform 0.3s;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        pointer-events: none;
-    }
-    
-    .toggle.active .toggle-slider {
-        transform: translateX(24px);
-    }
-    
-    .toggle-label {
-        font-size: 14px;
-        font-weight: 600;
-    }
-    
-    .preset-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        margin-top: 10px;
-    }
-    
-    .preset-btn {
-        padding: 10px;
-        border: 2px solid #667eea;
-        background: white;
-        color: #667eea;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: 600;
-        transition: all 0.2s;
-        position: relative;
-        font-family: inherit;
-    }
-    
-    .preset-btn:hover {
-        background: #f0f4ff;
-    }
-    
-    .preset-btn:focus-visible {
-        outline: 2px solid #667eea;
-        outline-offset: 2px;
-    }
-    
-    .preset-btn.active {
-        background: #667eea;
-        color: white;
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
-    }
-    
-    .scenario-info {
-        background: #e9ecef;
-        border-left: 3px solid #667eea;
-        padding: 12px;
-        border-radius: 4px;
-        margin-top: 12px;
-        font-size: 13px;
-        color: #495057;
-        display: none;
-    }
-    
-    .scenario-info.visible {
-        display: block;
-        animation: slideIn 0.3s ease;
-    }
-    
-    @keyframes slideIn {
-        from { opacity: 0; transform: translateY(-5px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .drawdown-stats {
-        background: #e7f3ff;
-        border-left: 3px solid #667eea;
-        padding: 12px;
-        border-radius: 4px;
-        margin-top: 10px;
-        font-size: 12px;
-        color: #495057;
-        line-height: 1.5;
-    }
-    
-    .drawdown-stats.urgent {
-        background: #f8d7da;
-        border-left-color: #dc3545;
-        color: #721c24;
-    }
-    
-    .drawdown-stats.warning {
-        background: #fff3cd;
-        border-left-color: #ffc107;
-        color: #856404;
-    }
-    
-    .portfolio-info {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        padding: 10px;
-        border-radius: 4px;
-        margin-top: 8px;
-        font-size: 11px;
-        color: #6c757d;
-    }
-    
-    .allocation-drift {
-        background: #fff3cd;
-        border: 1px dashed #ffc107;
-        padding: 8px;
-        border-radius: 4px;
-        margin-top: 8px;
-        font-size: 11px;
-        color: #856404;
-    }
-    
-    .band-diagram {
-        background: #f8f9fa;
-        border-radius: 8px;
-        padding: 40px 20px 20px 20px;
-        margin-bottom: 30px;
-        position: relative;
-        height: 280px;
-        overflow: hidden;
-    }
-    
-    .band-line {
-        position: absolute;
-        left: 50px;
-        right: 20px;
-        height: 2px;
-        background: #dee2e6;
-    }
-    
-    .band-line.lower {
-        background: #ffc107;
-    }
-    
-    .band-line.target {
-        background: #28a745;
-        height: 3px;
-    }
-    
-    .band-line.upper {
-        background: #dc3545;
-    }
-    
-    .band-label {
-        position: absolute;
-        left: calc(100% - 10px);
-        top: -8px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-        background: white;
-        padding: 2px 6px;
-        border-radius: 4px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        transform: translateX(-100%);
-    }
-    
-    @media (max-width: 640px) {
+        
+        .visualization {
+            padding: 30px;
+        }
+        
+        .control-group {
+            margin-bottom: 25px;
+        }
+        
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .slider-container {
+            position: relative;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #dee2e6;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]:focus-visible {
+            outline: 2px solid #667eea;
+            outline-offset: 4px;
+            border-radius: 3px;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .slider-value {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .slider-value.warning {
+            background: #ffc107;
+            color: #000;
+        }
+        
+        .slider-value.danger {
+            background: #dc3545;
+        }
+        
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #dee2e6;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: none;
+            padding: 0;
+        }
+        
+        .toggle.active {
+            background: #28a745;
+        }
+        
+        .toggle:focus-visible {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+        
+        .toggle.active .toggle-slider {
+            transform: translateX(24px);
+        }
+        
+        .toggle-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .preset-btn {
+            padding: 10px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+            position: relative;
+            font-family: inherit;
+        }
+        
+        .preset-btn:hover {
+            background: #f0f4ff;
+        }
+        
+        .preset-btn:focus-visible {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        .preset-btn.active {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        .scenario-info {
+            background: #e9ecef;
+            border-left: 3px solid #667eea;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #495057;
+            display: none;
+        }
+        
+        .scenario-info.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .drawdown-stats {
+            background: #e7f3ff;
+            border-left: 3px solid #667eea;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #495057;
+            line-height: 1.5;
+        }
+        
+        .drawdown-stats.urgent {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .drawdown-stats.warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+            color: #856404;
+        }
+        
+        .portfolio-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #6c757d;
+        }
+        
+        .allocation-drift {
+            background: #fff3cd;
+            border: 1px dashed #ffc107;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 8px;
+            font-size: 11px;
+            color: #856404;
+        }
+        
         .band-diagram {
-            padding: 40px 10px 20px 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px 20px 20px 20px;
+            margin-bottom: 30px;
+            position: relative;
+            height: 280px;
+            overflow: hidden;
         }
         
         .band-line {
-            left: 40px;
-            right: 10px;
+            position: absolute;
+            left: 50px;
+            right: 20px;
+            height: 2px;
+            background: #dee2e6;
+        }
+        
+        .band-line.lower {
+            background: #ffc107;
+        }
+        
+        .band-line.target {
+            background: #28a745;
+            height: 3px;
+        }
+        
+        .band-line.upper {
+            background: #dc3545;
         }
         
         .band-label {
-            font-size: 10px;
-            padding: 2px 4px;
+            position: absolute;
+            left: calc(100% - 10px);
+            top: -8px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transform: translateX(-100%);
         }
-    }
-    
-    .current-position {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        border: 3px solid white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        z-index: 10;
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    
-    .position-label {
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-        color: white;
-        background: inherit;
-    }
-    
-    .decision-panel {
-        background: white;
-        border: 2px solid #dee2e6;
-        border-radius: 8px;
-        padding: 25px;
-        margin-bottom: 20px;
-    }
-    
-    .decision-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 15px;
-    }
-    
-    .decision-icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        flex-shrink: 0;
-    }
-    
-    .decision-icon.no-action {
-        background: #d4edda;
-        color: #155724;
-    }
-    
-    .decision-icon.skip {
-        background: #fff3cd;
-        color: #856404;
-    }
-    
-    .decision-icon.rebalance {
-        background: #f8d7da;
-        color: #721c24;
-    }
-    
-    .decision-icon.urgent {
-        background: #dc3545;
-        color: white;
-        animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-    }
-    
-    .decision-text h3 {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-    
-    .decision-text p {
-        font-size: 14px;
-        color: #6c757d;
-    }
-    
-    .decision-details {
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 6px;
-        font-size: 14px;
-        line-height: 1.6;
-        border-left: 4px solid #dee2e6;
-    }
-    
-    .decision-details.rebalance {
-        border-left-color: #dc3545;
-        background: #f8d7da;
-    }
-    
-    .decision-details.skip {
-        border-left-color: #ffc107;
-        background: #fff3cd;
-    }
-    
-    .decision-details.no-action {
-        border-left-color: #28a745;
-        background: #d4edda;
-    }
-    
-    .decision-details.urgent {
-        border-left-color: #dc3545;
-        background: #f8d7da;
-        border: 2px solid #dc3545;
-    }
-    
-    .comparison-panels {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    
-    @media (max-width: 640px) {
+        
+        @media (max-width: 640px) {
+            .band-diagram {
+                padding: 40px 10px 20px 10px;
+            }
+            
+            .band-line {
+                left: 40px;
+                right: 10px;
+            }
+            
+            .band-label {
+                font-size: 10px;
+                padding: 2px 4px;
+            }
+        }
+        
+        .current-position {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 10;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .position-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+            color: white;
+            background: inherit;
+        }
+        
+        .decision-panel {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .decision-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .decision-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .decision-icon.no-action {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .decision-icon.skip {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .decision-icon.rebalance {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .decision-icon.urgent {
+            background: #dc3545;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .decision-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .decision-text p {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        
+        .decision-details {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+            border-left: 4px solid #dee2e6;
+        }
+        
+        .decision-details.rebalance {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        .decision-details.skip {
+            border-left-color: #ffc107;
+            background: #fff3cd;
+        }
+        
+        .decision-details.no-action {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .decision-details.urgent {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+        }
+        
         .comparison-panels {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-    }
-    
-    .comparison-panel {
-        border: 2px solid #dee2e6;
-        border-radius: 8px;
-        padding: 20px;
-    }
-    
-    .comparison-panel h4 {
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #dee2e6;
-    }
-    
-    .metric-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-        font-size: 14px;
-        border-bottom: 1px solid #f0f0f0;
-    }
-    
-    .metric-row:last-child {
-        border-bottom: none;
-    }
-    
-    .metric-label {
-        color: #6c757d;
-    }
-    
-    .metric-value {
-        font-weight: 600;
-    }
-    
-    .metric-value.urgent {
-        color: #dc3545;
-    }
-    
-    .zone-legend {
-        display: flex;
-        gap: 20px;
-        margin-top: 20px;
-        flex-wrap: wrap;
-    }
-    
-    .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-    }
-    
-    .legend-color {
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
-        border: 2px solid transparent;
-    }
-    
-    .legend-color.safe {
-        background: #d4edda;
-        border-color: #28a745;
-    }
-    
-    .legend-color.skip {
-        background: #fff3cd;
-        border-color: #ffc107;
-        border-style: dashed;
-    }
-    
-    .legend-color.rebalance {
-        background: #f8d7da;
-        border-color: #dc3545;
-    }
-    
-    .divider {
-        height: 1px;
-        background: #dee2e6;
-        margin: 25px 0;
-    }
-    
-    .info-text {
-        font-size: 12px;
-        color: #6c757d;
-        margin-top: 4px;
-        font-style: italic;
-    }
-    
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0,0,0,0);
-        white-space: nowrap;
-        border-width: 0;
-    }
-    
-    .assumptions-accordion {
-        margin-top: 30px;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    
-    details {
-        border-bottom: 1px solid #dee2e6;
-    }
-    
-    details:last-child {
-        border-bottom: none;
-    }
-    
-    summary {
-        background: #f8f9fa;
-        padding: 15px 20px;
-        cursor: pointer;
-        font-weight: 600;
-        color: #495057;
-        list-style: none;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: background 0.2s;
-    }
-    
-    summary:hover {
-        background: #e9ecef;
-    }
-    
-    summary::-webkit-details-marker {
-        display: none;
-    }
-    
-    summary::after {
-        content: '▼';
-        font-size: 12px;
-        transition: transform 0.3s;
-    }
-    
-    details[open] summary::after {
-        transform: rotate(180deg);
-    }
-    
-    details[open] summary {
-        background: #667eea;
-        color: white;
-    }
-    
-    .accordion-content {
-        padding: 20px;
-        background: white;
-        line-height: 1.6;
-        color: #495057;
-    }
-    
-    .accordion-content h4 {
-        color: #667eea;
-        margin: 20px 0 10px 0;
-        font-size: 16px;
-    }
-    
-    .accordion-content h4:first-child {
-        margin-top: 0;
-    }
-    
-    .accordion-content ul, .accordion-content ol {
-        margin-left: 20px;
-        margin-bottom: 15px;
-    }
-    
-    .accordion-content li {
-        margin-bottom: 8px;
-    }
-    
-    .formula-box {
-        background: #f8f9fa;
-        border-left: 3px solid #667eea;
-        padding: 12px;
-        margin: 10px 0;
-        font-family: monospace;
-        font-size: 13px;
-        border-radius: 0 4px 4px 0;
-    }
-    
-    .highlight {
-        background: #fff3cd;
-        padding: 2px 4px;
-        border-radius: 3px;
-        font-weight: 600;
-    }
-    
-    .error-message {
-        color: #dc3545;
-        font-size: 12px;
-        margin-top: 4px;
-        display: none;
-    }
-    
-    .error-message.visible {
-        display: block;
-    }
-    
-    input[type="number"].error {
-        border-color: #dc3545;
-    }
-    
-    input[type="range"].error {
-        outline: 2px solid #dc3545;
-        outline-offset: 2px;
-    }
-</style>
-```
-
+        
+        @media (max-width: 640px) {
+            .comparison-panels {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .comparison-panel {
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .comparison-panel h4 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            color: #6c757d;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+        }
+        
+        .metric-value.urgent {
+            color: #dc3545;
+        }
+        
+        .zone-legend {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid transparent;
+        }
+        
+        .legend-color.safe {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .legend-color.skip {
+            background: #fff3cd;
+            border-color: #ffc107;
+            border-style: dashed;
+        }
+        
+        .legend-color.rebalance {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        .divider {
+            height: 1px;
+            background: #dee2e6;
+            margin: 25px 0;
+        }
+        
+        .info-text {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        .assumptions-accordion {
+            margin-top: 30px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        details {
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        details:last-child {
+            border-bottom: none;
+        }
+        
+        summary {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #495057;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+        
+        summary:hover {
+            background: #e9ecef;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+        
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+        
+        details[open] summary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .accordion-content {
+            padding: 20px;
+            background: white;
+            line-height: 1.6;
+            color: #495057;
+        }
+        
+        .accordion-content h4 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 16px;
+        }
+        
+        .accordion-content h4:first-child {
+            margin-top: 0;
+        }
+        
+        .accordion-content ul, .accordion-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .accordion-content li {
+            margin-bottom: 8px;
+        }
+        
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 3px solid #667eea;
+            padding: 12px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 13px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        
+        .error-message.visible {
+            display: block;
+        }
+        
+        input[type="number"].error {
+            border-color: #dc3545;
+        }
+        
+        input[type="range"].error {
+            outline: 2px solid #dc3545;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
     <div class="container" role="main">
@@ -724,949 +720,966 @@
             <h1>CPIplus Rebalancing Calculator</h1>
             <p>Interactive demonstration of rebalancing bands and skip rule logic</p>
         </header>
-
-```
-    <div class="main-content">
-        <aside class="controls" aria-label="Calculator controls">
-            <div class="control-group">
-                <label id="scenarioLabel">Historical Scenarios</label>
-                <div class="preset-buttons" role="group" aria-labelledby="scenarioLabel">
-                    <button class="preset-btn" data-scenario="gfc" id="btn-gfc" aria-pressed="false">GFC 2008-09</button>
-                    <button class="preset-btn" data-scenario="covid" id="btn-covid" aria-pressed="false">COVID 2020</button>
-                    <button class="preset-btn" data-scenario="inflation" id="btn-inflation" aria-pressed="false">2022 Inflation</button>
-                    <button class="preset-btn" data-scenario="moderate" id="btn-moderate" aria-pressed="false">Moderate -12%</button>
-                    <button class="preset-btn" data-scenario="bull" id="btn-bull" aria-pressed="false">Bull Market</button>
-                    <button class="preset-btn" data-scenario="reset" id="btn-reset" aria-pressed="false">Reset</button>
-                </div>
-                <div id="scenarioInfo" class="scenario-info" role="status" aria-live="polite"></div>
-            </div>
-            
-            <div class="divider" role="separator"></div>
-            
-            <div class="control-group">
-                <label for="portfolioType">Portfolio Type</label>
-                <select id="portfolioType" aria-describedby="portfolioTypeInfo portfolioInfo">
-                    <option value="conservative">Conservative (58% growth)</option>
-                    <option value="balanced">Balanced (76% growth)</option>
-                    <option value="growth" selected>Growth (90% growth)</option>
-                </select>
-                <p class="info-text" id="portfolioTypeInfo">Hostplus Signature options - all default to 18-23% bands</p>
-                <div id="portfolioInfo" class="portfolio-info" role="region" aria-label="Portfolio allocation details"></div>
-                <div id="driftInfo" class="allocation-drift" style="display: none;" role="region" aria-label="Allocation drift calculation"></div>
-            </div>
-            
-            <div class="divider" role="separator"></div>
-            
-            <div class="control-group">
-                <label for="portfolioValue">Total Portfolio Value (AUD)</label>
-                <input type="number" id="portfolioValue" value="400000" min="1000" max="50000000" step="1000" aria-describedby="portfolioValueError portfolioValueInfo" aria-invalid="false">
-                <div id="portfolioValueError" class="error-message" role="alert">Please enter a valid amount between $1,000 and $50,000,000</div>
-                <p class="info-text" id="portfolioValueInfo">Total superannuation balance</p>
-            </div>
-            
-            <div class="divider" role="separator"></div>
-            
-            <div class="control-group">
-                <label for="drawdownRate">Pension Drawdown Rate (Min 5%)</label>
-                <div class="slider-container">
-                    <input type="range" id="drawdownRate" min="5" max="15" step="0.5" value="5" aria-describedby="drawdownRateValue drawdownStats drawdownInfo">
-                    <span class="slider-value" id="drawdownRateValue" aria-live="polite">5.0%</span>
-                </div>
-                <p class="info-text" id="drawdownInfo">Percentage of TOTAL portfolio paid monthly from CPIplus only</p>
-                <div id="drawdownStats" class="drawdown-stats" role="region" aria-label="Drawdown statistics"></div>
-            </div>
-            
-            <div class="divider" role="separator"></div>
-            
-            <div class="control-group">
-                <label for="cpiplusAlloc">Current CPIplus Allocation</label>
-                <div class="slider-container">
-                    <input type="range" id="cpiplusAlloc" min="0" max="50" step="0.1" value="20" aria-describedby="cpiplusAllocValue cpiplusAllocInfo">
-                    <span class="slider-value" id="cpiplusAllocValue" aria-live="polite">20.0%</span>
-                </div>
-                <p class="info-text" id="cpiplusAllocInfo">Auto-adjusts when scenario/drawdown changes; drag to override</p>
-            </div>
-            
-            <div class="control-group">
-                <label for="growthReturn">Growth Option 12-Month Return</label>
-                <div class="slider-container">
-                    <input type="range" id="growthReturn" min="-50" max="50" step="1" value="0" aria-describedby="growthReturnValue">
-                    <span class="slider-value" id="growthReturnValue" aria-live="polite">0%</span>
-                </div>
-            </div>
-            
-            <div class="divider" role="separator"></div>
-            
-            <div class="control-group">
-                <label for="lowerBound">Lower Bound Threshold</label>
-                <div class="slider-container">
-                    <input type="range" id="lowerBound" min="5" max="25" step="0.5" value="18" aria-describedby="lowerBoundValue boundError">
-                    <span class="slider-value" id="lowerBoundValue" aria-live="polite">18%</span>
-                </div>
-                <div id="boundError" class="error-message" role="alert">Lower bound must be less than upper bound</div>
-            </div>
-            
-            <div class="control-group">
-                <label for="upperBound">Upper Bound Threshold</label>
-                <div class="slider-container">
-                    <input type="range" id="upperBound" min="15" max="35" step="0.5" value="23" aria-describedby="upperBoundValue">
-                    <span class="slider-value" id="upperBoundValue" aria-live="polite">23%</span>
-                </div>
-            </div>
-            
-            <div class="divider" role="separator"></div>
-            
-            <div class="control-group">
-                <label id="skipRuleLabel">Skip Rule</label>
-                <div class="toggle-container">
-                    <button class="toggle active" id="skipToggle" role="switch" aria-checked="true" aria-labelledby="skipRuleLabel">
-                        <div class="toggle-slider"></div>
-                    </button>
-                    <span class="toggle-label" id="skipLabel" aria-live="polite">Enabled</span>
-                </div>
-                <p class="info-text">Prevents rebalancing during market crashes</p>
-            </div>
-            
-            <div class="control-group">
-                <label for="skipThreshold">Skip Threshold (12m return)</label>
-                <div class="slider-container">
-                    <input type="range" id="skipThreshold" min="-30" max="0" step="1" value="-8" aria-describedby="skipThresholdValue">
-                    <span class="slider-value" id="skipThresholdValue" aria-live="polite">-8%</span>
-                </div>
-            </div>
-        </aside>
         
-        <section class="visualization" aria-label="Rebalancing results">
-            <div class="band-diagram" id="bandDiagram" role="img" aria-label="Allocation band diagram showing current position relative to thresholds">
-                <!-- Content populated by JavaScript -->
-            </div>
-            
-            <div class="decision-panel" aria-label="Decision summary">
-                <div class="decision-header">
-                    <div class="decision-icon no-action" id="decisionIcon" aria-hidden="true">✓</div>
-                    <div class="decision-text">
-                        <h2 id="decisionAction" style="font-size: 20px; margin-bottom: 5px;">NO ACTION</h2>
-                        <p id="decisionReason">Within band - no rebalancing needed</p>
+        <div class="main-content">
+            <aside class="controls" aria-label="Calculator controls">
+                <div class="control-group">
+                    <label id="scenarioLabel">Historical Scenarios</label>
+                    <div class="preset-buttons" role="group" aria-labelledby="scenarioLabel">
+                        <button class="preset-btn" data-scenario="gfc" id="btn-gfc" aria-pressed="false">GFC 2008-09</button>
+                        <button class="preset-btn" data-scenario="covid" id="btn-covid" aria-pressed="false">COVID 2020</button>
+                        <button class="preset-btn" data-scenario="inflation" id="btn-inflation" aria-pressed="false">2022 Inflation</button>
+                        <button class="preset-btn" data-scenario="moderate" id="btn-moderate" aria-pressed="false">Moderate -12%</button>
+                        <button class="preset-btn" data-scenario="bull" id="btn-bull" aria-pressed="false">Bull Market</button>
+                        <button class="preset-btn" data-scenario="reset" id="btn-reset" aria-pressed="false">Reset</button>
                     </div>
+                    <div id="scenarioInfo" class="scenario-info" role="status" aria-live="polite"></div>
                 </div>
-                <div class="decision-details no-action" id="decisionDetails" role="region" aria-label="Decision details">
-                    CPIplus allocation is within the healthy range. No action required.
+                
+                <div class="divider" role="separator"></div>
+                
+                <div class="control-group">
+                    <label for="portfolioType">Portfolio Type</label>
+                    <select id="portfolioType" aria-describedby="portfolioTypeInfo portfolioInfo">
+                        <option value="conservative">Conservative (58% growth)</option>
+                        <option value="balanced">Balanced (76% growth)</option>
+                        <option value="growth" selected>Growth (90% growth)</option>
+                    </select>
+                    <p class="info-text" id="portfolioTypeInfo">Hostplus Signature options - all default to 18-23% bands</p>
+                    <div id="portfolioInfo" class="portfolio-info" role="region" aria-label="Portfolio allocation details"></div>
+                    <div id="driftInfo" class="allocation-drift" style="display: none;" role="region" aria-label="Allocation drift calculation"></div>
                 </div>
-            </div>
-            
-            <div class="comparison-panels">
-                <div class="comparison-panel">
-                    <h3 style="font-size: 16px;">With Skip Rule</h3>
-                    <div class="metric-row">
-                        <span class="metric-label">Action:</span>
-                        <span class="metric-value" id="withSkipAction">NO ACTION</span>
+                
+                <div class="divider" role="separator"></div>
+                
+                <div class="control-group">
+                    <label for="portfolioValue">Total Portfolio Value (AUD)</label>
+                    <input type="number" id="portfolioValue" value="400000" min="1000" max="50000000" step="1000" aria-describedby="portfolioValueError portfolioValueInfo" aria-invalid="false">
+                    <div id="portfolioValueError" class="error-message" role="alert">Please enter a valid amount between $1,000 and $50,000,000</div>
+                    <p class="info-text" id="portfolioValueInfo">Total superannuation balance</p>
+                </div>
+                
+                <div class="divider" role="separator"></div>
+                
+                <div class="control-group">
+                    <label for="drawdownRate">Pension Drawdown Rate (Min 5%)</label>
+                    <div class="slider-container">
+                        <input type="range" id="drawdownRate" min="5" max="15" step="0.5" value="5" aria-describedby="drawdownRateValue drawdownStats drawdownInfo">
+                        <span class="slider-value" id="drawdownRateValue" aria-live="polite">5.0%</span>
                     </div>
-                    <div class="metric-row">
-                        <span class="metric-label">Skip Active:</span>
-                        <span class="metric-value" id="withSkipActive">No</span>
+                    <p class="info-text" id="drawdownInfo">Percentage of TOTAL portfolio paid monthly from CPIplus only</p>
+                    <div id="drawdownStats" class="drawdown-stats" role="region" aria-label="Drawdown statistics"></div>
+                </div>
+                
+                <div class="divider" role="separator"></div>
+                
+                <div class="control-group">
+                    <label for="cpiplusAlloc">Current CPIplus Allocation</label>
+                    <div class="slider-container">
+                        <input type="range" id="cpiplusAlloc" min="0" max="50" step="0.1" value="20" aria-describedby="cpiplusAllocValue cpiplusAllocInfo">
+                        <span class="slider-value" id="cpiplusAllocValue" aria-live="polite">20.0%</span>
                     </div>
-                    <div class="metric-row">
-                        <span class="metric-label">Rebalance Amount:</span>
-                        <span class="metric-value" id="withSkipAmount">$0</span>
-                    </div>
-                    <div class="metric-row">
-                        <span class="metric-label">Years to Depletion:</span>
-                        <span class="metric-value" id="withSkipDepletion">N/A</span>
+                    <p class="info-text" id="cpiplusAllocInfo">Auto-adjusts when scenario/drawdown changes; drag to override</p>
+                </div>
+                
+                <div class="control-group">
+                    <label for="growthReturn">Growth Option 12-Month Return</label>
+                    <div class="slider-container">
+                        <input type="range" id="growthReturn" min="-50" max="50" step="1" value="0" aria-describedby="growthReturnValue">
+                        <span class="slider-value" id="growthReturnValue" aria-live="polite">0%</span>
                     </div>
                 </div>
                 
-                <div class="comparison-panel">
-                    <h3 style="font-size: 16px;">Without Skip Rule</h3>
-                    <div class="metric-row">
-                        <span class="metric-label">Action:</span>
-                        <span class="metric-value" id="withoutSkipAction">NO ACTION</span>
+                <div class="divider" role="separator"></div>
+                
+                <div class="control-group">
+                    <label for="lowerBound">Lower Bound Threshold</label>
+                    <div class="slider-container">
+                        <input type="range" id="lowerBound" min="5" max="25" step="0.5" value="18" aria-describedby="lowerBoundValue boundError">
+                        <span class="slider-value" id="lowerBoundValue" aria-live="polite">18%</span>
                     </div>
-                    <div class="metric-row">
-                        <span class="metric-label">Would Rebalance:</span>
-                        <span class="metric-value" id="withoutSkipWould">No</span>
-                    </div>
-                    <div class="metric-row">
-                        <span class="metric-label">Rebalance Amount:</span>
-                        <span class="metric-value" id="withoutSkipAmount">$0</span>
-                    </div>
-                    <div class="metric-row">
-                        <span class="metric-label">Years to Depletion:</span>
-                        <span class="metric-value" id="withoutSkipDepletion">N/A</span>
+                    <div id="boundError" class="error-message" role="alert">Lower bound must be less than upper bound</div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="upperBound">Upper Bound Threshold</label>
+                    <div class="slider-container">
+                        <input type="range" id="upperBound" min="15" max="35" step="0.5" value="23" aria-describedby="upperBoundValue">
+                        <span class="slider-value" id="upperBoundValue" aria-live="polite">23%</span>
                     </div>
                 </div>
-            </div>
+                
+                <div class="divider" role="separator"></div>
+                
+                <div class="control-group">
+                    <label id="skipRuleLabel">Skip Rule</label>
+                    <div class="toggle-container">
+                        <button class="toggle active" id="skipToggle" role="switch" aria-checked="true" aria-labelledby="skipRuleLabel">
+                            <div class="toggle-slider"></div>
+                        </button>
+                        <span class="toggle-label" id="skipLabel" aria-live="polite">Enabled</span>
+                    </div>
+                    <p class="info-text">Prevents rebalancing during market crashes</p>
+                </div>
+                
+                <div class="control-group">
+                    <label for="skipThreshold">Skip Threshold (12m return)</label>
+                    <div class="slider-container">
+                        <input type="range" id="skipThreshold" min="-30" max="0" step="1" value="-8" aria-describedby="skipThresholdValue">
+                        <span class="slider-value" id="skipThresholdValue" aria-live="polite">-8%</span>
+                    </div>
+                </div>
+            </aside>
             
-            <div class="zone-legend" aria-label="Zone legend">
-                <div class="legend-item">
-                    <div class="legend-color safe" aria-hidden="true"></div>
-                    <span>Safe Zone (No Action)</span>
+            <section class="visualization" aria-label="Rebalancing results">
+                <div class="band-diagram" id="bandDiagram" role="img" aria-label="Allocation band diagram showing current position relative to thresholds">
+                    <!-- Content populated by JavaScript -->
                 </div>
-                <div class="legend-item">
-                    <div class="legend-color skip" aria-hidden="true"></div>
-                    <span>Skip Zone (Pause Rebalancing)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-color rebalance" aria-hidden="true"></div>
-                    <span>Rebalance Zone</span>
-                </div>
-            </div>
-            
-            <div class="assumptions-accordion">
-                <details>
-                    <summary>📋 View All Assumptions &amp; Methodology</summary>
-                    <div class="accordion-content">
-                        <h4>1. Simultaneous Market Impact &amp; Drawdown</h4>
-                        <p>This calculator models both effects occurring simultaneously over the year:</p>
-                        <div class="formula-box">
-                            Final CPIplus $ = Initial CPIplus $ - Annual Drawdown<br>
-                            Final Growth $ = Initial Growth $ × (1 + Return)<br>
-                            Final CPIplus % = Final CPIplus $ / (Final CPIplus $ + Final Growth $)
+                
+                <div class="decision-panel" aria-label="Decision summary">
+                    <div class="decision-header">
+                        <div class="decision-icon no-action" id="decisionIcon" aria-hidden="true">✓</div>
+                        <div class="decision-text">
+                            <h2 id="decisionAction" style="font-size: 20px; margin-bottom: 5px;">NO ACTION</h2>
+                            <p id="decisionReason">Within band - no rebalancing needed</p>
                         </div>
-                        <p>Starting from 20% CPIplus / 80% Growth target allocation.</p>
-                        
-                        <h4>2. Monthly Drawdown Calculation</h4>
-                        <p>Drawdown is calculated monthly but shown as annual total:</p>
-                        <div class="formula-box">
-                            Monthly Drawdown = (Drawdown Rate % × Total Portfolio) / 12<br>
-                            Years to Depletion = Current CPIplus % / Drawdown Rate %
-                        </div>
-                        
-                        <h4>3. Hostplus Portfolio Allocations</h4>
-                        <p><strong>Conservative (58% Growth):</strong> Australian Equities 22%, International 30%, Fixed Interest 5%, Unlisted Assets 27%, Alternatives 3%, Other 13%</p>
-                        <p><strong>Balanced (76% Growth):</strong> Australian Equities 29%, International 31%, Property &amp; Infrastructure 9%, Fixed Interest 3%, Cash 3%, Alternatives 25%</p>
-                        <p><strong>Growth (90% Growth):</strong> Australian Shares 21%, International 29%, Property 9%, Infrastructure 11%, Private Equity 10%, Credit 7%, Alternatives 4%, Bonds 5%, Cash 4%</p>
-                        
-                        <h4>4. Rebalancing Bands</h4>
-                        <ul>
-                            <li>Lower Bound: 18% (rebalance UP from growth)</li>
-                            <li>Target: 20%</li>
-                            <li>Upper Bound: 23% (rebalance DOWN to growth)</li>
-                        </ul>
-                        <p>No emergency floor - the 18% lower bound is the trigger.</p>
-                        
-                        <h4>5. Skip Rule</h4>
-                        <p>When CPIplus &gt; 23% AND Growth Return &lt; -8%, rebalancing is paused to avoid selling growth assets during a crash.</p>
                     </div>
-                </details>
-            </div>
-        </section>
+                    <div class="decision-details no-action" id="decisionDetails" role="region" aria-label="Decision details">
+                        CPIplus allocation is within the healthy range. No action required.
+                    </div>
+                </div>
+                
+                <div class="comparison-panels">
+                    <div class="comparison-panel">
+                        <h3 style="font-size: 16px;">With Skip Rule</h3>
+                        <div class="metric-row">
+                            <span class="metric-label">Action:</span>
+                            <span class="metric-value" id="withSkipAction">NO ACTION</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Skip Active:</span>
+                            <span class="metric-value" id="withSkipActive">No</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Rebalance Amount:</span>
+                            <span class="metric-value" id="withSkipAmount">$0</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Years to Depletion:</span>
+                            <span class="metric-value" id="withSkipDepletion">N/A</span>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-panel">
+                        <h3 style="font-size: 16px;">Without Skip Rule</h3>
+                        <div class="metric-row">
+                            <span class="metric-label">Action:</span>
+                            <span class="metric-value" id="withoutSkipAction">NO ACTION</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Would Rebalance:</span>
+                            <span class="metric-value" id="withoutSkipWould">No</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Rebalance Amount:</span>
+                            <span class="metric-value" id="withoutSkipAmount">$0</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Years to Depletion:</span>
+                            <span class="metric-value" id="withoutSkipDepletion">N/A</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zone-legend" aria-label="Zone legend">
+                    <div class="legend-item">
+                        <div class="legend-color safe" aria-hidden="true"></div>
+                        <span>Safe Zone (No Action)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color skip" aria-hidden="true"></div>
+                        <span>Skip Zone (Pause Rebalancing)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color rebalance" aria-hidden="true"></div>
+                        <span>Rebalance Zone</span>
+                    </div>
+                </div>
+                
+                <div class="assumptions-accordion">
+                    <details>
+                        <summary>📋 View All Assumptions &amp; Methodology</summary>
+                        <div class="accordion-content">
+                            <h4>1. Monthly Stepped Drawdown &amp; Market Return</h4>
+                            <p>This calculator steps through 12 monthly periods. Each month, the growth return compounds and then the drawdown payment is deducted from CPIplus:</p>
+                            <div class="formula-box">
+                                Monthly Growth Return = (1 + Annual Return) ^ (1/12) - 1<br>
+                                Each month:<br>
+                                &nbsp;&nbsp;Growth $ = Growth $ × (1 + Monthly Return)<br>
+                                &nbsp;&nbsp;Payment = (CPIplus $ + Growth $) × (Annual Drawdown Rate / 12)<br>
+                                &nbsp;&nbsp;CPIplus $ = CPIplus $ - Payment<br>
+                                Final CPIplus % = CPIplus $ / (CPIplus $ + Growth $)
+                            </div>
+                            <p>Starting from 20% CPIplus / 80% Growth target allocation. Annual return figures are entered as inputs; the monthly compounding captures the interaction between drawdown payments and portfolio movements accurately.</p>
+                            
+                            <h4>2. Monthly Drawdown Calculation</h4>
+                            <p>Drawdown is applied monthly as a fraction of the current total portfolio value, paid from CPIplus only:</p>
+                            <div class="formula-box">
+                                Monthly Payment = (Drawdown Rate % / 12) × Current Total Portfolio<br>
+                                Years to Depletion ≈ Current CPIplus % / Drawdown Rate %
+                            </div>
+                            
+                            <h4>3. Hostplus Portfolio Allocations</h4>
+                            <p><strong>Conservative (58% Growth):</strong> Australian Equities 22%, International 30%, Fixed Interest 5%, Unlisted Assets 27%, Alternatives 3%, Other 13%</p>
+                            <p><strong>Balanced (76% Growth):</strong> Australian Equities 29%, International 31%, Property &amp; Infrastructure 9%, Fixed Interest 3%, Cash 3%, Alternatives 25%</p>
+                            <p><strong>Growth (90% Growth):</strong> Australian Shares 21%, International 29%, Property 9%, Infrastructure 11%, Private Equity 10%, Credit 7%, Alternatives 4%, Bonds 5%, Cash 4%</p>
+                            
+                            <h4>4. Rebalancing Bands</h4>
+                            <ul>
+                                <li>Lower Bound: 18% (rebalance UP from growth)</li>
+                                <li>Target: 20%</li>
+                                <li>Upper Bound: 23% (rebalance DOWN to growth)</li>
+                            </ul>
+                            <p>No emergency floor - the 18% lower bound is the trigger.</p>
+                            
+                            <h4>5. Skip Rule</h4>
+                            <p>When CPIplus &gt; 23% AND Growth Return &lt; -8%, rebalancing is paused to avoid selling growth assets during a crash.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </div>
     </div>
-</div>
-
-<script>
-    (function() {
-        'use strict';
-        
-        // ═══════════════════════════════════════════════════
-        // CONFIGURATION
-        // ═══════════════════════════════════════════════════
-        
-        const CONFIG = Object.freeze({
-            TARGET_ALLOCATION: 20,
-            INITIAL_CPIPLUS_RATIO: 0.20,
-            INITIAL_GROWTH_RATIO: 0.80,
-            DEFAULT_PORTFOLIO_VALUE: 400000,
-            MIN_PORTFOLIO_VALUE: 1000,
-            MAX_PORTFOLIO_VALUE: 50000000,
-            MONTHS_PER_YEAR: 12,
-            BAND_DIAGRAM_MIN_PCT: 0,
-            BAND_DIAGRAM_MAX_PCT: 50,
-            DEPLETION_URGENT_YEARS: 1,
-            DEPLETION_WARNING_YEARS: 2,
-            PORTFOLIO_TYPES: Object.freeze({
-                conservative: Object.freeze({ 
-                    lower: 18, 
-                    upper: 23, 
-                    label: 'Conservative',
-                    growthDefensive: '58% growth / 42% defensive',
-                    allocation: 'Australian Equities: 22%, International: 30%, Fixed Interest: 5%, Unlisted Assets: 27%, Alternatives: 3%, Other: 13%'
-                }),
-                balanced: Object.freeze({ 
-                    lower: 18, 
-                    upper: 23, 
-                    label: 'Balanced',
-                    growthDefensive: '76% growth / 24% defensive',
-                    allocation: 'Australian Equities: 29%, International: 31%, Property & Infrastructure: 9%, Fixed Interest: 3%, Cash: 3%, Alternatives: 25%'
-                }),
-                growth: Object.freeze({ 
-                    lower: 18, 
-                    upper: 23, 
-                    label: 'Growth',
-                    growthDefensive: '90% growth / 10% defensive',
-                    allocation: 'Australian Shares: 21%, International: 29%, Property: 9%, Infrastructure: 11%, Private Equity: 10%, Credit: 7%, Alternatives: 4%, Bonds: 5%, Cash: 4%'
+    
+    <script>
+        (function() {
+            'use strict';
+            
+            // ═══════════════════════════════════════════════════
+            // CONFIGURATION
+            // ═══════════════════════════════════════════════════
+            
+            const CONFIG = Object.freeze({
+                TARGET_ALLOCATION: 20,
+                INITIAL_CPIPLUS_RATIO: 0.20,
+                INITIAL_GROWTH_RATIO: 0.80,
+                DEFAULT_PORTFOLIO_VALUE: 400000,
+                MIN_PORTFOLIO_VALUE: 1000,
+                MAX_PORTFOLIO_VALUE: 50000000,
+                MONTHS_PER_YEAR: 12,
+                BAND_DIAGRAM_MIN_PCT: 0,
+                BAND_DIAGRAM_MAX_PCT: 50,
+                DEPLETION_URGENT_YEARS: 1,
+                DEPLETION_WARNING_YEARS: 2,
+                PORTFOLIO_TYPES: Object.freeze({
+                    conservative: Object.freeze({ 
+                        lower: 18, 
+                        upper: 23, 
+                        label: 'Conservative',
+                        growthDefensive: '58% growth / 42% defensive',
+                        allocation: 'Australian Equities: 22%, International: 30%, Fixed Interest: 5%, Unlisted Assets: 27%, Alternatives: 3%, Other: 13%'
+                    }),
+                    balanced: Object.freeze({ 
+                        lower: 18, 
+                        upper: 23, 
+                        label: 'Balanced',
+                        growthDefensive: '76% growth / 24% defensive',
+                        allocation: 'Australian Equities: 29%, International: 31%, Property & Infrastructure: 9%, Fixed Interest: 3%, Cash: 3%, Alternatives: 25%'
+                    }),
+                    growth: Object.freeze({ 
+                        lower: 18, 
+                        upper: 23, 
+                        label: 'Growth',
+                        growthDefensive: '90% growth / 10% defensive',
+                        allocation: 'Australian Shares: 21%, International: 29%, Property: 9%, Infrastructure: 11%, Private Equity: 10%, Credit: 7%, Alternatives: 4%, Bonds: 5%, Cash: 4%'
+                    })
                 })
-            })
-        });
-        
-        const SCENARIOS = Object.freeze({
-            gfc: Object.freeze({
-                returns: Object.freeze({ conservative: -20, balanced: -28, growth: -35 }),
-                name: "GFC 2008-09",
-                description: "Global Financial Crisis - March 2009. Severe impact on growth assets.",
-                assumptions: "Australian Equities: -38%, International: -42%, AREITs: -35%, Infrastructure: -25%, Bonds: +6%, Cash: +4%"
-            }),
-            covid: Object.freeze({
-                returns: Object.freeze({ conservative: -13, balanced: -20, growth: -28 }),
-                name: "COVID March 2020",
-                description: "Pandemic crash - Sharp V-shaped decline.",
-                assumptions: "Australian Equities: -30%, International: -26%, REITs: -25%, Infrastructure: -18%, Bonds: 0%, Cash: +1%"
-            }),
-            inflation: Object.freeze({
-                returns: Object.freeze({ conservative: -8, balanced: -12, growth: -16 }),
-                name: "2022 Inflation Shock",
-                description: "Rate hikes hurt both equities and bonds.",
-                assumptions: "Australian Equities: -12%, International: -20%, AREITs: -10%, Infrastructure: -6%, Bonds: -13%, Cash: +1%"
-            }),
-            moderate: Object.freeze({
-                returns: Object.freeze({ conservative: -8, balanced: -11, growth: -14 }),
-                name: "Moderate Correction",
-                description: "Standard cyclical downturn.",
-                assumptions: "Australian Equities: -10%, International: -14%, Emerging Markets: -18%, Property: -8%"
-            }),
-            bull: Object.freeze({
-                returns: Object.freeze({ conservative: 10, balanced: 16, growth: 22 }),
-                name: "Bull Market",
-                description: "Strong growth period.",
-                assumptions: "Australian Equities: +24%, International: +18%, Tech: +35%, Property: +20%, Infrastructure: +12%"
-            }),
-            reset: Object.freeze({
-                returns: Object.freeze({ conservative: 0, balanced: 0, growth: 0 }),
-                name: "Reset",
-                description: "Starting position.",
-                assumptions: "No market movement"
-            })
-        });
-        
-        // ═══════════════════════════════════════════════════
-        // STATE
-        // ═══════════════════════════════════════════════════
-        
-        let skipEnabled = true;
-        let currentScenario = null;
-        let isManualOverride = false;
-        
-        // ═══════════════════════════════════════════════════
-        // DOM CACHE
-        // ═══════════════════════════════════════════════════
-        
-        const elements = {};
-        
-        function cacheElements() {
-            const ids = [
-                'portfolioType', 'portfolioValue', 'portfolioValueError', 'drawdownRate', 
-                'drawdownRateValue', 'drawdownStats', 'cpiplusAlloc', 'cpiplusAllocValue',
-                'growthReturn', 'growthReturnValue', 'lowerBound', 'lowerBoundValue',
-                'upperBound', 'upperBoundValue', 'skipToggle', 'skipLabel', 'skipThreshold',
-                'skipThresholdValue', 'scenarioInfo', 'portfolioInfo', 'driftInfo',
-                'decisionIcon', 'decisionAction', 'decisionReason', 'decisionDetails',
-                'withSkipAction', 'withSkipActive', 'withSkipAmount', 'withSkipDepletion',
-                'withoutSkipAction', 'withoutSkipWould', 'withoutSkipAmount', 'withoutSkipDepletion',
-                'bandDiagram', 'boundError'
-            ];
+            });
             
-            for (const id of ids) {
-                const el = document.getElementById(id);
-                if (!el) {
-                    console.warn(`Element not found: #${id}`);
-                }
-                elements[id] = el;
-            }
+            const SCENARIOS = Object.freeze({
+                gfc: Object.freeze({
+                    returns: Object.freeze({ conservative: -20, balanced: -28, growth: -35 }),
+                    name: "GFC 2008-09",
+                    description: "Global Financial Crisis - March 2009. Severe impact on growth assets.",
+                    assumptions: "Australian Equities: -38%, International: -42%, AREITs: -35%, Infrastructure: -25%, Bonds: +6%, Cash: +4%"
+                }),
+                covid: Object.freeze({
+                    returns: Object.freeze({ conservative: -13, balanced: -20, growth: -28 }),
+                    name: "COVID March 2020",
+                    description: "Pandemic crash - Sharp V-shaped decline.",
+                    assumptions: "Australian Equities: -30%, International: -26%, REITs: -25%, Infrastructure: -18%, Bonds: 0%, Cash: +1%"
+                }),
+                inflation: Object.freeze({
+                    returns: Object.freeze({ conservative: -8, balanced: -12, growth: -16 }),
+                    name: "2022 Inflation Shock",
+                    description: "Rate hikes hurt both equities and bonds.",
+                    assumptions: "Australian Equities: -12%, International: -20%, AREITs: -10%, Infrastructure: -6%, Bonds: -13%, Cash: +1%"
+                }),
+                moderate: Object.freeze({
+                    returns: Object.freeze({ conservative: -8, balanced: -11, growth: -14 }),
+                    name: "Moderate Correction",
+                    description: "Standard cyclical downturn.",
+                    assumptions: "Australian Equities: -10%, International: -14%, Emerging Markets: -18%, Property: -8%"
+                }),
+                bull: Object.freeze({
+                    returns: Object.freeze({ conservative: 10, balanced: 16, growth: 22 }),
+                    name: "Bull Market",
+                    description: "Strong growth period.",
+                    assumptions: "Australian Equities: +24%, International: +18%, Tech: +35%, Property: +20%, Infrastructure: +12%"
+                }),
+                reset: Object.freeze({
+                    returns: Object.freeze({ conservative: 0, balanced: 0, growth: 0 }),
+                    name: "Reset",
+                    description: "Starting position.",
+                    assumptions: "No market movement"
+                })
+            });
             
-            elements.presetButtons = document.querySelectorAll('.preset-btn[data-scenario]');
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // UTILITY FUNCTIONS
-        // ═══════════════════════════════════════════════════
-        
-        function fmtPct(n) {
-            return (n > 0 ? '+' : '') + n.toFixed(1) + '%';
-        }
-        
-        const audFormatter = new Intl.NumberFormat('en-AU', {
-            style: 'currency', 
-            currency: 'AUD',
-            maximumFractionDigits: 0
-        });
-        
-        function fmtAUD(n) {
-            if (!Number.isFinite(n)) return '$0';
-            return audFormatter.format(Math.abs(n));
-        }
-        
-        function escapeHtml(text) {
-            if (typeof text !== 'string') return '';
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        function clamp(value, min, max) {
-            return Math.min(Math.max(value, min), max);
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // CORE CALCULATIONS
-        // ═══════════════════════════════════════════════════
-        
-        function calculateYearsToDepletion(cpiplusPct, drawdownRate) {
-            if (drawdownRate <= 0 || cpiplusPct <= 0) return Infinity;
-            return cpiplusPct / drawdownRate;
-        }
-        
-        /**
-         * Calculates the CPIplus allocation percentage after simultaneous
-         * drawdown from CPIplus and market return on the growth portion.
-         * 
-         * Model: Over 1 year, the full annual drawdown is deducted from CPIplus,
-         * and the growth portion compounds by the return rate.
-         * 
-         * @param {number} portfolioValue - Total portfolio value in AUD
-         * @param {number} drawdownRate - Annual drawdown rate as percentage (e.g. 5 for 5%)
-         * @param {number} returnRate - 12-month growth return as percentage (e.g. -35 for -35%)
-         * @returns {number} Resulting CPIplus allocation as percentage (0-100)
-         */
-        function calculateDriftedAllocation(portfolioValue, drawdownRate, returnRate) {
-            const initialCPIplus = portfolioValue * CONFIG.INITIAL_CPIPLUS_RATIO;
-            const initialGrowth = portfolioValue * CONFIG.INITIAL_GROWTH_RATIO;
-            const annualDrawdown = portfolioValue * (drawdownRate / 100);
+            // ═══════════════════════════════════════════════════
+            // STATE
+            // ═══════════════════════════════════════════════════
             
-            const finalCPIplus = Math.max(0, initialCPIplus - annualDrawdown);
-            const finalGrowth = initialGrowth * (1 + returnRate / 100);
-            const finalTotal = finalCPIplus + finalGrowth;
+            let skipEnabled = true;
+            let currentScenario = null;
+            let isManualOverride = false;
             
-            if (finalTotal <= 0) return 0;
-            return (finalCPIplus / finalTotal) * 100;
-        }
-        
-        /**
-         * Determines the rebalancing decision based on current allocation,
-         * market conditions, and band thresholds.
-         * 
-         * Decision priority:
-         * 1. CPIplus depleted → URGENT (critical)
-         * 2. Below lower bound → REBALANCE (sell growth → buy CPIplus)
-         * 3. Above upper bound + skip conditions met → SKIP
-         * 4. Above upper bound → REBALANCE (sell CPIplus → buy growth)
-         * 5. Within band → NO ACTION
-         */
-        function calculateDecision(cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, useSkip, portfolioValue, drawdownRate) {
-            const TARGET = CONFIG.TARGET_ALLOCATION;
-            const yearsToDepletion = calculateYearsToDepletion(cpiplusPct, drawdownRate);
-            const annualDrawdown = portfolioValue * (drawdownRate / 100);
-            const monthlyDrawdown = annualDrawdown / CONFIG.MONTHS_PER_YEAR;
+            // ═══════════════════════════════════════════════════
+            // DOM CACHE
+            // ═══════════════════════════════════════════════════
             
-            // Case 1: CPIplus fully depleted
-            if (cpiplusPct <= 0) {
-                return {
-                    action: 'CPIPLUS DEPLETED',
-                    reason: 'Critical: CPIplus fully exhausted',
-                    details: `At ${drawdownRate}% drawdown, CPIplus has been fully depleted. No buffer remains.`,
-                    type: 'urgent',
-                    amount: 0,
-                    skipActive: false,
-                    yearsToDepletion: 0,
-                    urgency: 'critical'
-                };
-            }
+            const elements = {};
             
-            // Case 2: Below lower bound — need to replenish CPIplus from growth
-            if (cpiplusPct < lowerBound) {
-                const amount = ((TARGET - cpiplusPct) / 100) * portfolioValue;
-                let urgency = 'normal';
-                let action = 'REBALANCE TO TARGET';
+            function cacheElements() {
+                const ids = [
+                    'portfolioType', 'portfolioValue', 'portfolioValueError', 'drawdownRate', 
+                    'drawdownRateValue', 'drawdownStats', 'cpiplusAlloc', 'cpiplusAllocValue',
+                    'growthReturn', 'growthReturnValue', 'lowerBound', 'lowerBoundValue',
+                    'upperBound', 'upperBoundValue', 'skipToggle', 'skipLabel', 'skipThreshold',
+                    'skipThresholdValue', 'scenarioInfo', 'portfolioInfo', 'driftInfo',
+                    'decisionIcon', 'decisionAction', 'decisionReason', 'decisionDetails',
+                    'withSkipAction', 'withSkipActive', 'withSkipAmount', 'withSkipDepletion',
+                    'withoutSkipAction', 'withoutSkipWould', 'withoutSkipAmount', 'withoutSkipDepletion',
+                    'bandDiagram', 'boundError'
+                ];
                 
-                if (yearsToDepletion < CONFIG.DEPLETION_URGENT_YEARS) {
-                    urgency = 'urgent';
-                    action = 'URGENT REBALANCE';
-                } else if (yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS) {
-                    urgency = 'high';
+                for (const id of ids) {
+                    const el = document.getElementById(id);
+                    if (!el) {
+                        console.warn(`Element not found: #${id}`);
+                    }
+                    elements[id] = el;
                 }
                 
-                return {
-                    action: action,
-                    reason: `Below lower bound: ${cpiplusPct.toFixed(1)}% < ${lowerBound}%`,
-                    details: `Drawing ${fmtAUD(monthlyDrawdown)}/month from CPIplus. Only ${yearsToDepletion.toFixed(1)} years until depletion at current rate. Selling ${fmtAUD(amount)} from growth to replenish.`,
-                    type: urgency === 'urgent' ? 'urgent' : 'rebalance',
-                    amount: amount,
-                    skipActive: false,
-                    yearsToDepletion: yearsToDepletion,
-                    urgency: urgency
-                };
+                elements.presetButtons = document.querySelectorAll('.preset-btn[data-scenario]');
             }
             
-            // Case 3: Above upper bound
-            if (cpiplusPct > upperBound) {
-                // Check skip rule: don't rebalance during a crash
-                if (useSkip && growthReturn < skipThreshold) {
+            // ═══════════════════════════════════════════════════
+            // UTILITY FUNCTIONS
+            // ═══════════════════════════════════════════════════
+            
+            function fmtPct(n) {
+                return (n > 0 ? '+' : '') + n.toFixed(1) + '%';
+            }
+            
+            const audFormatter = new Intl.NumberFormat('en-AU', {
+                style: 'currency', 
+                currency: 'AUD',
+                maximumFractionDigits: 0
+            });
+            
+            function fmtAUD(n) {
+                if (!Number.isFinite(n)) return '$0';
+                return audFormatter.format(Math.abs(n));
+            }
+            
+            function escapeHtml(text) {
+                if (typeof text !== 'string') return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            function clamp(value, min, max) {
+                return Math.min(Math.max(value, min), max);
+            }
+            
+            // ═══════════════════════════════════════════════════
+            // CORE CALCULATIONS
+            // ═══════════════════════════════════════════════════
+            
+            function calculateYearsToDepletion(cpiplusPct, drawdownRate) {
+                if (drawdownRate <= 0 || cpiplusPct <= 0) return Infinity;
+                return cpiplusPct / drawdownRate;
+            }
+            
+            /**
+             * Calculates the CPIplus allocation percentage after 12 months of
+             * monthly drawdown payments from CPIplus and compounding market
+             * return on the growth portion.
+             * 
+             * Model: The annual growth return is converted to a monthly rate
+             * via (1 + annual)^(1/12) - 1. Each month, growth compounds by
+             * the monthly rate, then the drawdown payment (annual rate / 12
+             * applied to the current total portfolio) is deducted from CPIplus.
+             * This captures the interaction between shrinking/growing portfolio
+             * values and the payment stream accurately.
+             * 
+             * @param {number} portfolioValue - Total portfolio value in AUD
+             * @param {number} drawdownRate - Annual drawdown rate as percentage (e.g. 5 for 5%)
+             * @param {number} returnRate - 12-month growth return as percentage (e.g. -35 for -35%)
+             * @returns {number} Resulting CPIplus allocation as percentage (0-100)
+             */
+            function calculateDriftedAllocation(portfolioValue, drawdownRate, returnRate) {
+                var cpiplus = portfolioValue * CONFIG.INITIAL_CPIPLUS_RATIO;
+                var growth = portfolioValue * CONFIG.INITIAL_GROWTH_RATIO;
+                
+                // Convert annual return to monthly compounding rate
+                var monthlyReturn = Math.pow(1 + returnRate / 100, 1 / CONFIG.MONTHS_PER_YEAR) - 1;
+                var monthlyDrawdownRate = (drawdownRate / 100) / CONFIG.MONTHS_PER_YEAR;
+                
+                for (var m = 0; m < CONFIG.MONTHS_PER_YEAR; m++) {
+                    // 1. Apply monthly growth return
+                    growth = growth * (1 + monthlyReturn);
+                    
+                    // 2. Calculate and deduct monthly payment from CPIplus
+                    var total = cpiplus + growth;
+                    var payment = total * monthlyDrawdownRate;
+                    cpiplus = Math.max(0, cpiplus - payment);
+                }
+                
+                var finalTotal = cpiplus + growth;
+                if (finalTotal <= 0) return 0;
+                return (cpiplus / finalTotal) * 100;
+            }
+            
+            /**
+             * Determines the rebalancing decision based on current allocation,
+             * market conditions, and band thresholds.
+             * 
+             * Decision priority:
+             * 1. CPIplus depleted → URGENT (critical)
+             * 2. Below lower bound → REBALANCE (sell growth → buy CPIplus)
+             * 3. Above upper bound + skip conditions met → SKIP
+             * 4. Above upper bound → REBALANCE (sell CPIplus → buy growth)
+             * 5. Within band → NO ACTION
+             */
+            function calculateDecision(cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, useSkip, portfolioValue, drawdownRate) {
+                const TARGET = CONFIG.TARGET_ALLOCATION;
+                const yearsToDepletion = calculateYearsToDepletion(cpiplusPct, drawdownRate);
+                const annualDrawdown = portfolioValue * (drawdownRate / 100);
+                const monthlyDrawdown = annualDrawdown / CONFIG.MONTHS_PER_YEAR;
+                
+                // Case 1: CPIplus fully depleted
+                if (cpiplusPct <= 0) {
                     return {
-                        action: 'SKIP REBALANCING',
-                        reason: `Skip rule active: Growth ${growthReturn}% < ${skipThreshold}% threshold`,
-                        details: `CPIplus at ${cpiplusPct.toFixed(1)}% exceeds ${upperBound}%, but rebalancing paused during crash. Buffer provides ${yearsToDepletion.toFixed(1)} years at ${drawdownRate}% drawdown.`,
-                        type: 'skip',
+                        action: 'CPIPLUS DEPLETED',
+                        reason: 'Critical: CPIplus fully exhausted',
+                        details: `At ${drawdownRate}% drawdown, CPIplus has been fully depleted. No buffer remains.`,
+                        type: 'urgent',
                         amount: 0,
-                        skipActive: true,
+                        skipActive: false,
+                        yearsToDepletion: 0,
+                        urgency: 'critical'
+                    };
+                }
+                
+                // Case 2: Below lower bound — need to replenish CPIplus from growth
+                if (cpiplusPct < lowerBound) {
+                    const amount = ((TARGET - cpiplusPct) / 100) * portfolioValue;
+                    let urgency = 'normal';
+                    let action = 'REBALANCE TO TARGET';
+                    
+                    if (yearsToDepletion < CONFIG.DEPLETION_URGENT_YEARS) {
+                        urgency = 'urgent';
+                        action = 'URGENT REBALANCE';
+                    } else if (yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS) {
+                        urgency = 'high';
+                    }
+                    
+                    return {
+                        action: action,
+                        reason: `Below lower bound: ${cpiplusPct.toFixed(1)}% < ${lowerBound}%`,
+                        details: `Drawing ${fmtAUD(monthlyDrawdown)}/month from CPIplus. Only ${yearsToDepletion.toFixed(1)} years until depletion at current rate. Selling ${fmtAUD(amount)} from growth to replenish.`,
+                        type: urgency === 'urgent' ? 'urgent' : 'rebalance',
+                        amount: amount,
+                        skipActive: false,
+                        yearsToDepletion: yearsToDepletion,
+                        urgency: urgency
+                    };
+                }
+                
+                // Case 3: Above upper bound
+                if (cpiplusPct > upperBound) {
+                    // Check skip rule: don't rebalance during a crash
+                    if (useSkip && growthReturn < skipThreshold) {
+                        return {
+                            action: 'SKIP REBALANCING',
+                            reason: `Skip rule active: Growth ${growthReturn}% < ${skipThreshold}% threshold`,
+                            details: `CPIplus at ${cpiplusPct.toFixed(1)}% exceeds ${upperBound}%, but rebalancing paused during crash. Buffer provides ${yearsToDepletion.toFixed(1)} years at ${drawdownRate}% drawdown.`,
+                            type: 'skip',
+                            amount: 0,
+                            skipActive: true,
+                            yearsToDepletion: yearsToDepletion,
+                            urgency: 'normal'
+                        };
+                    }
+                    
+                    // Rebalance: sell excess CPIplus → buy growth
+                    const amount = ((cpiplusPct - TARGET) / 100) * portfolioValue;
+                    return {
+                        action: 'REBALANCE TO TARGET',
+                        reason: `Above upper bound: ${cpiplusPct.toFixed(1)}% > ${upperBound}%`,
+                        details: `Selling ${fmtAUD(amount)} from CPIplus to buy growth. Excess buffer provides ${yearsToDepletion.toFixed(1)} years runway.`,
+                        type: 'rebalance',
+                        amount: -amount,
+                        skipActive: false,
                         yearsToDepletion: yearsToDepletion,
                         urgency: 'normal'
                     };
                 }
                 
-                // Rebalance: sell excess CPIplus → buy growth
-                const amount = ((cpiplusPct - TARGET) / 100) * portfolioValue;
+                // Case 4: Within band — no action needed
                 return {
-                    action: 'REBALANCE TO TARGET',
-                    reason: `Above upper bound: ${cpiplusPct.toFixed(1)}% > ${upperBound}%`,
-                    details: `Selling ${fmtAUD(amount)} from CPIplus to buy growth. Excess buffer provides ${yearsToDepletion.toFixed(1)} years runway.`,
-                    type: 'rebalance',
-                    amount: -amount,
+                    action: 'NO ACTION',
+                    reason: `Within band: ${lowerBound}% < ${cpiplusPct.toFixed(1)}% < ${upperBound}%`,
+                    details: `CPIplus healthy. Drawing ${fmtAUD(monthlyDrawdown)}/month. ${yearsToDepletion.toFixed(1)} years runway remaining.`,
+                    type: 'no-action',
+                    amount: 0,
                     skipActive: false,
                     yearsToDepletion: yearsToDepletion,
                     urgency: 'normal'
                 };
             }
             
-            // Case 4: Within band — no action needed
-            return {
-                action: 'NO ACTION',
-                reason: `Within band: ${lowerBound}% < ${cpiplusPct.toFixed(1)}% < ${upperBound}%`,
-                details: `CPIplus healthy. Drawing ${fmtAUD(monthlyDrawdown)}/month. ${yearsToDepletion.toFixed(1)} years runway remaining.`,
-                type: 'no-action',
-                amount: 0,
-                skipActive: false,
-                yearsToDepletion: yearsToDepletion,
-                urgency: 'normal'
-            };
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // VALIDATION
-        // ═══════════════════════════════════════════════════
-        
-        function validateInputs() {
-            const portfolioValue = parseFloat(elements.portfolioValue.value);
-            let isValid = true;
+            // ═══════════════════════════════════════════════════
+            // VALIDATION
+            // ═══════════════════════════════════════════════════
             
-            // Portfolio value validation
-            if (!Number.isFinite(portfolioValue) || portfolioValue < CONFIG.MIN_PORTFOLIO_VALUE || portfolioValue > CONFIG.MAX_PORTFOLIO_VALUE) {
-                elements.portfolioValue.classList.add('error');
-                elements.portfolioValue.setAttribute('aria-invalid', 'true');
-                elements.portfolioValueError.classList.add('visible');
-                isValid = false;
-            } else {
-                elements.portfolioValue.classList.remove('error');
-                elements.portfolioValue.setAttribute('aria-invalid', 'false');
-                elements.portfolioValueError.classList.remove('visible');
+            function validateInputs() {
+                const portfolioValue = parseFloat(elements.portfolioValue.value);
+                let isValid = true;
+                
+                // Portfolio value validation
+                if (!Number.isFinite(portfolioValue) || portfolioValue < CONFIG.MIN_PORTFOLIO_VALUE || portfolioValue > CONFIG.MAX_PORTFOLIO_VALUE) {
+                    elements.portfolioValue.classList.add('error');
+                    elements.portfolioValue.setAttribute('aria-invalid', 'true');
+                    elements.portfolioValueError.classList.add('visible');
+                    isValid = false;
+                } else {
+                    elements.portfolioValue.classList.remove('error');
+                    elements.portfolioValue.setAttribute('aria-invalid', 'false');
+                    elements.portfolioValueError.classList.remove('visible');
+                }
+                
+                // Bound crossover validation
+                const lowerBound = parseFloat(elements.lowerBound.value);
+                const upperBound = parseFloat(elements.upperBound.value);
+                
+                if (lowerBound >= upperBound) {
+                    elements.boundError.style.display = 'block';
+                    elements.lowerBound.classList.add('error');
+                    elements.upperBound.classList.add('error');
+                    isValid = false;
+                } else {
+                    elements.boundError.style.display = 'none';
+                    elements.lowerBound.classList.remove('error');
+                    elements.upperBound.classList.remove('error');
+                }
+                
+                return isValid;
             }
             
-            // Bound crossover validation
-            const lowerBound = parseFloat(elements.lowerBound.value);
-            const upperBound = parseFloat(elements.upperBound.value);
+            // ═══════════════════════════════════════════════════
+            // UI UPDATE FUNCTIONS
+            // ═══════════════════════════════════════════════════
             
-            if (lowerBound >= upperBound) {
-                elements.boundError.style.display = 'block';
-                elements.lowerBound.classList.add('error');
-                elements.upperBound.classList.add('error');
-                isValid = false;
-            } else {
-                elements.boundError.style.display = 'none';
-                elements.lowerBound.classList.remove('error');
-                elements.upperBound.classList.remove('error');
+            function handlePortfolioChange() {
+                if (!validateInputs()) return;
+                
+                const type = elements.portfolioType.value;
+                const bounds = CONFIG.PORTFOLIO_TYPES[type];
+                
+                if (!bounds) return; // Guard against invalid type
+                
+                elements.lowerBound.value = bounds.lower;
+                elements.upperBound.value = bounds.upper;
+                
+                elements.lowerBoundValue.textContent = bounds.lower + '%';
+                elements.upperBoundValue.textContent = bounds.upper + '%';
+                
+                const infoDiv = elements.portfolioInfo;
+                infoDiv.innerHTML = '<strong>' + escapeHtml(bounds.growthDefensive) + '</strong><br>' + escapeHtml(bounds.allocation);
+                
+                if (currentScenario && SCENARIOS[currentScenario]) {
+                    isManualOverride = false;
+                    recalculateScenario();
+                } else {
+                    updateVisualization();
+                }
             }
             
-            return isValid;
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // UI UPDATE FUNCTIONS
-        // ═══════════════════════════════════════════════════
-        
-        function handlePortfolioChange() {
-            if (!validateInputs()) return;
-            
-            const type = elements.portfolioType.value;
-            const bounds = CONFIG.PORTFOLIO_TYPES[type];
-            
-            if (!bounds) return; // Guard against invalid type
-            
-            elements.lowerBound.value = bounds.lower;
-            elements.upperBound.value = bounds.upper;
-            
-            elements.lowerBoundValue.textContent = bounds.lower + '%';
-            elements.upperBoundValue.textContent = bounds.upper + '%';
-            
-            const infoDiv = elements.portfolioInfo;
-            infoDiv.innerHTML = '<strong>' + escapeHtml(bounds.growthDefensive) + '</strong><br>' + escapeHtml(bounds.allocation);
-            
-            if (currentScenario && SCENARIOS[currentScenario]) {
+            function loadScenario(scenarioKey) {
+                if (!SCENARIOS[scenarioKey]) return; // Guard against invalid scenario
+                
+                currentScenario = scenarioKey;
                 isManualOverride = false;
                 recalculateScenario();
-            } else {
+            }
+            
+            function recalculateScenario() {
+                if (!currentScenario || !SCENARIOS[currentScenario]) return;
+                
+                const s = SCENARIOS[currentScenario];
+                const portfolioType = elements.portfolioType.value;
+                const portfolioValue = parseFloat(elements.portfolioValue.value) || CONFIG.DEFAULT_PORTFOLIO_VALUE;
+                const drawdownRate = parseFloat(elements.drawdownRate.value);
+                
+                const returnRate = s.returns[portfolioType];
+                if (returnRate === undefined) return; // Guard against missing portfolio type in scenario
+                
+                elements.growthReturn.value = returnRate;
+                
+                const cpiplusPercentage = calculateDriftedAllocation(portfolioValue, drawdownRate, returnRate);
+                elements.cpiplusAlloc.value = cpiplusPercentage.toFixed(1);
+                
+                // Update button states
+                elements.presetButtons.forEach(function(btn) {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+                
+                const activeBtn = document.getElementById('btn-' + currentScenario);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                    activeBtn.setAttribute('aria-pressed', 'true');
+                }
+                
+                // Scenario info panel
+                const infoDiv = elements.scenarioInfo;
+                infoDiv.innerHTML = 
+                    '<strong>' + escapeHtml(s.name) + '</strong> - ' + escapeHtml(CONFIG.PORTFOLIO_TYPES[portfolioType].label) + '<br>' +
+                    escapeHtml(s.description) + '<br>' +
+                    'Return: ' + returnRate + '% | Drawdown: ' + drawdownRate + '%<br>' +
+                    'Resulting CPIplus: ' + cpiplusPercentage.toFixed(1) + '%<br><br>' +
+                    '<em>Asset Classes:</em> ' + escapeHtml(s.assumptions);
+                infoDiv.classList.add('visible');
+                
+                // Drift calculation panel
+                const driftDiv = elements.driftInfo;
+                driftDiv.style.display = 'block';
+                var monthlyReturnRate = (Math.pow(1 + returnRate / 100, 1/12) - 1) * 100;
+                var monthlyDDRate = drawdownRate / 12;
+                driftDiv.innerHTML = 
+                    '<strong>📊 Monthly Stepped Model:</strong><br>' +
+                    'Starting: ' + fmtAUD(portfolioValue * CONFIG.INITIAL_CPIPLUS_RATIO) + ' CPIplus (20%), ' + fmtAUD(portfolioValue * CONFIG.INITIAL_GROWTH_RATIO) + ' Growth (80%)<br>' +
+                    'Monthly growth return: ' + monthlyReturnRate.toFixed(2) + '% (compounds to ' + returnRate + '% pa)<br>' +
+                    'Monthly drawdown: ' + monthlyDDRate.toFixed(2) + '% of total portfolio from CPIplus<br>' +
+                    'After 12 months: <strong>' + cpiplusPercentage.toFixed(1) + '% CPIplus</strong>';
+                
+                updateVisualization(true);
+            }
+            
+            function manualCPIplusChange() {
+                isManualOverride = true;
                 updateVisualization();
             }
-        }
-        
-        function loadScenario(scenarioKey) {
-            if (!SCENARIOS[scenarioKey]) return; // Guard against invalid scenario
             
-            currentScenario = scenarioKey;
-            isManualOverride = false;
-            recalculateScenario();
-        }
-        
-        function recalculateScenario() {
-            if (!currentScenario || !SCENARIOS[currentScenario]) return;
-            
-            const s = SCENARIOS[currentScenario];
-            const portfolioType = elements.portfolioType.value;
-            const portfolioValue = parseFloat(elements.portfolioValue.value) || CONFIG.DEFAULT_PORTFOLIO_VALUE;
-            const drawdownRate = parseFloat(elements.drawdownRate.value);
-            
-            const returnRate = s.returns[portfolioType];
-            if (returnRate === undefined) return; // Guard against missing portfolio type in scenario
-            
-            elements.growthReturn.value = returnRate;
-            
-            const cpiplusPercentage = calculateDriftedAllocation(portfolioValue, drawdownRate, returnRate);
-            elements.cpiplusAlloc.value = cpiplusPercentage.toFixed(1);
-            
-            // Update button states
-            elements.presetButtons.forEach(function(btn) {
-                btn.classList.remove('active');
-                btn.setAttribute('aria-pressed', 'false');
-            });
-            
-            const activeBtn = document.getElementById('btn-' + currentScenario);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-                activeBtn.setAttribute('aria-pressed', 'true');
+            function manualReturnChange() {
+                isManualOverride = true;
+                updateVisualization();
             }
             
-            // Scenario info panel
-            const infoDiv = elements.scenarioInfo;
-            infoDiv.innerHTML = 
-                '<strong>' + escapeHtml(s.name) + '</strong> - ' + escapeHtml(CONFIG.PORTFOLIO_TYPES[portfolioType].label) + '<br>' +
-                escapeHtml(s.description) + '<br>' +
-                'Return: ' + returnRate + '% | Drawdown: ' + drawdownRate + '%<br>' +
-                'Resulting CPIplus: ' + cpiplusPercentage.toFixed(1) + '%<br><br>' +
-                '<em>Asset Classes:</em> ' + escapeHtml(s.assumptions);
-            infoDiv.classList.add('visible');
-            
-            // Drift calculation panel
-            const driftDiv = elements.driftInfo;
-            driftDiv.style.display = 'block';
-            driftDiv.innerHTML = 
-                '<strong>📊 Simultaneous Effect:</strong><br>' +
-                'Starting: ' + fmtAUD(portfolioValue * CONFIG.INITIAL_CPIPLUS_RATIO) + ' CPIplus (20%), ' + fmtAUD(portfolioValue * CONFIG.INITIAL_GROWTH_RATIO) + ' Growth (80%)<br>' +
-                'After 1 year: -' + drawdownRate + '% drawdown (' + fmtAUD(portfolioValue * drawdownRate / 100) + ') from CPIplus<br>' +
-                'Growth return: ' + returnRate + '%<br>' +
-                'Result: <strong>' + cpiplusPercentage.toFixed(1) + '% CPIplus</strong>';
-            
-            updateVisualization(true);
-        }
-        
-        function manualCPIplusChange() {
-            isManualOverride = true;
-            updateVisualization();
-        }
-        
-        function manualReturnChange() {
-            isManualOverride = true;
-            updateVisualization();
-        }
-        
-        function toggleSkip() {
-            skipEnabled = !skipEnabled;
-            const toggle = elements.skipToggle;
-            const label = elements.skipLabel;
-            
-            if (skipEnabled) {
-                toggle.classList.add('active');
-                toggle.setAttribute('aria-checked', 'true');
-                label.textContent = 'Enabled';
-            } else {
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-checked', 'false');
-                label.textContent = 'Disabled';
-            }
-            
-            updateVisualization();
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // MAIN VISUALIZATION UPDATE
-        // ═══════════════════════════════════════════════════
-        
-        function updateVisualization(skipRecalc) {
-            if (!validateInputs()) return;
-            
-            // Prevent infinite recursion: only recalculate scenario if not already doing so
-            if (!skipRecalc && currentScenario && SCENARIOS[currentScenario] && !isManualOverride) {
-                recalculateScenario();
-                return;
-            }
-            
-            // Read all input values
-            const cpiplusPct = parseFloat(elements.cpiplusAlloc.value);
-            const growthReturn = parseFloat(elements.growthReturn.value);
-            const lowerBound = parseFloat(elements.lowerBound.value);
-            const upperBound = parseFloat(elements.upperBound.value);
-            const skipThreshold = parseFloat(elements.skipThreshold.value);
-            const portfolioValue = parseFloat(elements.portfolioValue.value) || CONFIG.DEFAULT_PORTFOLIO_VALUE;
-            const drawdownRate = parseFloat(elements.drawdownRate.value);
-            
-            // Guard against NaN
-            if ([cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, drawdownRate].some(function(v) { return !Number.isFinite(v); })) {
-                return;
-            }
-            
-            // Update displayed slider values
-            elements.cpiplusAllocValue.textContent = cpiplusPct.toFixed(1) + '%';
-            elements.growthReturnValue.textContent = fmtPct(growthReturn);
-            elements.lowerBoundValue.textContent = lowerBound + '%';
-            elements.upperBoundValue.textContent = upperBound + '%';
-            elements.skipThresholdValue.textContent = skipThreshold + '%';
-            
-            // Drawdown display & urgency colouring
-            var drawdownValueDisplay = elements.drawdownRateValue;
-            drawdownValueDisplay.textContent = drawdownRate.toFixed(1) + '%';
-            
-            var yearsToDepletion = calculateYearsToDepletion(cpiplusPct, drawdownRate);
-            if (yearsToDepletion < CONFIG.DEPLETION_URGENT_YEARS) {
-                drawdownValueDisplay.className = 'slider-value danger';
-            } else if (yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS) {
-                drawdownValueDisplay.className = 'slider-value warning';
-            } else {
-                drawdownValueDisplay.className = 'slider-value';
-            }
-            
-            // Drawdown stats
-            var annualDrawdown = portfolioValue * (drawdownRate / 100);
-            var monthlyDrawdown = annualDrawdown / CONFIG.MONTHS_PER_YEAR;
-            
-            var statsDiv = elements.drawdownStats;
-            var statsClass = '';
-            
-            if (yearsToDepletion < CONFIG.DEPLETION_URGENT_YEARS) {
-                statsClass = 'urgent';
-            } else if (yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS) {
-                statsClass = 'warning';
-            }
-            
-            statsDiv.className = 'drawdown-stats' + (statsClass ? ' ' + statsClass : '');
-            statsDiv.innerHTML = 
-                '<strong>Monthly Pension:</strong> ' + fmtAUD(monthlyDrawdown) + '<br>' +
-                '<strong>Annual Total:</strong> ' + fmtAUD(annualDrawdown) + ' (' + drawdownRate + '% of ' + fmtAUD(portfolioValue) + ')<br>' +
-                '<strong>CPIplus Balance:</strong> ' + fmtAUD((cpiplusPct / 100) * portfolioValue) + '<br>' +
-                '<strong>Years to Depletion:</strong> ' + (yearsToDepletion === Infinity ? '∞' : yearsToDepletion.toFixed(1)) + ' years<br>' +
-                '<strong>Formula:</strong> ' + cpiplusPct.toFixed(1) + '% ÷ ' + drawdownRate + '% = ' + (yearsToDepletion === Infinity ? '∞' : yearsToDepletion.toFixed(1)) + ' years';
-            
-            // Calculate decisions for both skip-on and skip-off
-            var withSkip = calculateDecision(cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, true, portfolioValue, drawdownRate);
-            var withoutSkip = calculateDecision(cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, false, portfolioValue, drawdownRate);
-            
-            var activeDecision = skipEnabled ? withSkip : withoutSkip;
-            
-            // Update decision panel
-            var icon = elements.decisionIcon;
-            icon.className = 'decision-icon ' + activeDecision.type;
-            
-            var icons = {
-                'no-action': '✓',
-                'skip': '⏸',
-                'rebalance': '↻',
-                'urgent': '⚠'
-            };
-            icon.textContent = icons[activeDecision.type] || '↻';
-            
-            elements.decisionAction.textContent = activeDecision.action;
-            elements.decisionReason.textContent = activeDecision.reason;
-            
-            var detailsDiv = elements.decisionDetails;
-            detailsDiv.textContent = activeDecision.details;
-            detailsDiv.className = 'decision-details ' + activeDecision.type;
-            
-            // Comparison panels — With Skip
-            elements.withSkipAction.textContent = withSkip.action;
-            elements.withSkipActive.textContent = withSkip.skipActive ? 'Yes' : 'No';
-            elements.withSkipAmount.textContent = withSkip.amount === 0 ? '$0' : 
-                (withSkip.amount > 0 ? '+' : '-') + fmtAUD(Math.abs(withSkip.amount));
-            
-            var withSkipDepletionEl = elements.withSkipDepletion;
-            withSkipDepletionEl.textContent = withSkip.yearsToDepletion === Infinity ? '∞ years' : withSkip.yearsToDepletion.toFixed(1) + ' years';
-            withSkipDepletionEl.className = 'metric-value' + (withSkip.yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS ? ' urgent' : '');
-            
-            // Comparison panels — Without Skip
-            elements.withoutSkipAction.textContent = withoutSkip.action;
-            elements.withoutSkipWould.textContent = (withoutSkip.type === 'rebalance' || withoutSkip.type === 'urgent') ? 'Yes' : 'No';
-            elements.withoutSkipAmount.textContent = withoutSkip.amount === 0 ? '$0' : 
-                (withoutSkip.amount > 0 ? '+' : '-') + fmtAUD(Math.abs(withoutSkip.amount));
-            
-            var withoutSkipDepletionEl = elements.withoutSkipDepletion;
-            withoutSkipDepletionEl.textContent = withoutSkip.yearsToDepletion === Infinity ? '∞ years' : withoutSkip.yearsToDepletion.toFixed(1) + ' years';
-            withoutSkipDepletionEl.className = 'metric-value' + (withoutSkip.yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS ? ' urgent' : '');
-            
-            // Update band diagram
-            updateBandDiagram(cpiplusPct, lowerBound, upperBound, activeDecision.type);
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // BAND DIAGRAM RENDERING
-        // ═══════════════════════════════════════════════════
-        
-        function updateBandDiagram(cpiplusPct, lowerBound, upperBound, decisionType) {
-            var diagram = elements.bandDiagram;
-            var minPct = CONFIG.BAND_DIAGRAM_MIN_PCT;
-            var maxPct = CONFIG.BAND_DIAGRAM_MAX_PCT;
-            var range = maxPct - minPct;
-            
-            function getPosition(pct) {
-                pct = clamp(pct, minPct, maxPct);
-                return ((maxPct - pct) / range) * 100;
-            }
-            
-            var lowerPos = getPosition(lowerBound);
-            var targetPos = getPosition(CONFIG.TARGET_ALLOCATION);
-            var upperPos = getPosition(upperBound);
-            var currentPos = getPosition(cpiplusPct);
-            
-            var zones = [
-                // Upper zone (above upper bound)
-                {
-                    top: 0,
-                    bottom: upperPos,
-                    color: decisionType === 'skip' ? '#fff3cd' : '#f8d7da',
-                    type: decisionType === 'skip' ? 'skip' : 'rebalance'
-                },
-                // Safe zone (between bounds)
-                {
-                    top: upperPos,
-                    bottom: lowerPos,
-                    color: '#d4edda',
-                    type: 'safe'
-                },
-                // Lower zone (below lower bound)
-                {
-                    top: lowerPos,
-                    bottom: 100,
-                    color: '#f8d7da',
-                    type: 'rebalance'
+            function toggleSkip() {
+                skipEnabled = !skipEnabled;
+                const toggle = elements.skipToggle;
+                const label = elements.skipLabel;
+                
+                if (skipEnabled) {
+                    toggle.classList.add('active');
+                    toggle.setAttribute('aria-checked', 'true');
+                    label.textContent = 'Enabled';
+                } else {
+                    toggle.classList.remove('active');
+                    toggle.setAttribute('aria-checked', 'false');
+                    label.textContent = 'Disabled';
                 }
-            ];
+                
+                updateVisualization();
+            }
             
-            var htmlParts = [];
+            // ═══════════════════════════════════════════════════
+            // MAIN VISUALIZATION UPDATE
+            // ═══════════════════════════════════════════════════
             
-            zones.forEach(function(zone) {
-                var borderStyle = zone.type === 'skip' ? 'dashed' : 'solid';
-                var borderColor = zone.type === 'safe' ? '#28a745' : (zone.type === 'skip' ? '#ffc107' : '#dc3545');
+            function updateVisualization(skipRecalc) {
+                if (!validateInputs()) return;
+                
+                // Prevent infinite recursion: only recalculate scenario if not already doing so
+                if (!skipRecalc && currentScenario && SCENARIOS[currentScenario] && !isManualOverride) {
+                    recalculateScenario();
+                    return;
+                }
+                
+                // Read all input values
+                const cpiplusPct = parseFloat(elements.cpiplusAlloc.value);
+                const growthReturn = parseFloat(elements.growthReturn.value);
+                const lowerBound = parseFloat(elements.lowerBound.value);
+                const upperBound = parseFloat(elements.upperBound.value);
+                const skipThreshold = parseFloat(elements.skipThreshold.value);
+                const portfolioValue = parseFloat(elements.portfolioValue.value) || CONFIG.DEFAULT_PORTFOLIO_VALUE;
+                const drawdownRate = parseFloat(elements.drawdownRate.value);
+                
+                // Guard against NaN
+                if ([cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, drawdownRate].some(function(v) { return !Number.isFinite(v); })) {
+                    return;
+                }
+                
+                // Update displayed slider values
+                elements.cpiplusAllocValue.textContent = cpiplusPct.toFixed(1) + '%';
+                elements.growthReturnValue.textContent = fmtPct(growthReturn);
+                elements.lowerBoundValue.textContent = lowerBound + '%';
+                elements.upperBoundValue.textContent = upperBound + '%';
+                elements.skipThresholdValue.textContent = skipThreshold + '%';
+                
+                // Drawdown display & urgency colouring
+                var drawdownValueDisplay = elements.drawdownRateValue;
+                drawdownValueDisplay.textContent = drawdownRate.toFixed(1) + '%';
+                
+                var yearsToDepletion = calculateYearsToDepletion(cpiplusPct, drawdownRate);
+                if (yearsToDepletion < CONFIG.DEPLETION_URGENT_YEARS) {
+                    drawdownValueDisplay.className = 'slider-value danger';
+                } else if (yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS) {
+                    drawdownValueDisplay.className = 'slider-value warning';
+                } else {
+                    drawdownValueDisplay.className = 'slider-value';
+                }
+                
+                // Drawdown stats
+                var annualDrawdown = portfolioValue * (drawdownRate / 100);
+                var monthlyDrawdown = annualDrawdown / CONFIG.MONTHS_PER_YEAR;
+                
+                var statsDiv = elements.drawdownStats;
+                var statsClass = '';
+                
+                if (yearsToDepletion < CONFIG.DEPLETION_URGENT_YEARS) {
+                    statsClass = 'urgent';
+                } else if (yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS) {
+                    statsClass = 'warning';
+                }
+                
+                statsDiv.className = 'drawdown-stats' + (statsClass ? ' ' + statsClass : '');
+                statsDiv.innerHTML = 
+                    '<strong>Monthly Pension:</strong> ' + fmtAUD(monthlyDrawdown) + '<br>' +
+                    '<strong>Annual Total:</strong> ' + fmtAUD(annualDrawdown) + ' (' + drawdownRate + '% of ' + fmtAUD(portfolioValue) + ')<br>' +
+                    '<strong>CPIplus Balance:</strong> ' + fmtAUD((cpiplusPct / 100) * portfolioValue) + '<br>' +
+                    '<strong>Years to Depletion:</strong> ' + (yearsToDepletion === Infinity ? '∞' : yearsToDepletion.toFixed(1)) + ' years<br>' +
+                    '<strong>Formula:</strong> ' + cpiplusPct.toFixed(1) + '% ÷ ' + drawdownRate + '% = ' + (yearsToDepletion === Infinity ? '∞' : yearsToDepletion.toFixed(1)) + ' years';
+                
+                // Calculate decisions for both skip-on and skip-off
+                var withSkip = calculateDecision(cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, true, portfolioValue, drawdownRate);
+                var withoutSkip = calculateDecision(cpiplusPct, growthReturn, lowerBound, upperBound, skipThreshold, false, portfolioValue, drawdownRate);
+                
+                var activeDecision = skipEnabled ? withSkip : withoutSkip;
+                
+                // Update decision panel
+                var icon = elements.decisionIcon;
+                icon.className = 'decision-icon ' + activeDecision.type;
+                
+                var icons = {
+                    'no-action': '✓',
+                    'skip': '⏸',
+                    'rebalance': '↻',
+                    'urgent': '⚠'
+                };
+                icon.textContent = icons[activeDecision.type] || '↻';
+                
+                elements.decisionAction.textContent = activeDecision.action;
+                elements.decisionReason.textContent = activeDecision.reason;
+                
+                var detailsDiv = elements.decisionDetails;
+                detailsDiv.textContent = activeDecision.details;
+                detailsDiv.className = 'decision-details ' + activeDecision.type;
+                
+                // Comparison panels — With Skip
+                elements.withSkipAction.textContent = withSkip.action;
+                elements.withSkipActive.textContent = withSkip.skipActive ? 'Yes' : 'No';
+                elements.withSkipAmount.textContent = withSkip.amount === 0 ? '$0' : 
+                    (withSkip.amount > 0 ? '+' : '-') + fmtAUD(Math.abs(withSkip.amount));
+                
+                var withSkipDepletionEl = elements.withSkipDepletion;
+                withSkipDepletionEl.textContent = withSkip.yearsToDepletion === Infinity ? '∞ years' : withSkip.yearsToDepletion.toFixed(1) + ' years';
+                withSkipDepletionEl.className = 'metric-value' + (withSkip.yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS ? ' urgent' : '');
+                
+                // Comparison panels — Without Skip
+                elements.withoutSkipAction.textContent = withoutSkip.action;
+                elements.withoutSkipWould.textContent = (withoutSkip.type === 'rebalance' || withoutSkip.type === 'urgent') ? 'Yes' : 'No';
+                elements.withoutSkipAmount.textContent = withoutSkip.amount === 0 ? '$0' : 
+                    (withoutSkip.amount > 0 ? '+' : '-') + fmtAUD(Math.abs(withoutSkip.amount));
+                
+                var withoutSkipDepletionEl = elements.withoutSkipDepletion;
+                withoutSkipDepletionEl.textContent = withoutSkip.yearsToDepletion === Infinity ? '∞ years' : withoutSkip.yearsToDepletion.toFixed(1) + ' years';
+                withoutSkipDepletionEl.className = 'metric-value' + (withoutSkip.yearsToDepletion < CONFIG.DEPLETION_WARNING_YEARS ? ' urgent' : '');
+                
+                // Update band diagram
+                updateBandDiagram(cpiplusPct, lowerBound, upperBound, activeDecision.type);
+            }
+            
+            // ═══════════════════════════════════════════════════
+            // BAND DIAGRAM RENDERING
+            // ═══════════════════════════════════════════════════
+            
+            function updateBandDiagram(cpiplusPct, lowerBound, upperBound, decisionType) {
+                var diagram = elements.bandDiagram;
+                var minPct = CONFIG.BAND_DIAGRAM_MIN_PCT;
+                var maxPct = CONFIG.BAND_DIAGRAM_MAX_PCT;
+                var range = maxPct - minPct;
+                
+                function getPosition(pct) {
+                    pct = clamp(pct, minPct, maxPct);
+                    return ((maxPct - pct) / range) * 100;
+                }
+                
+                var lowerPos = getPosition(lowerBound);
+                var targetPos = getPosition(CONFIG.TARGET_ALLOCATION);
+                var upperPos = getPosition(upperBound);
+                var currentPos = getPosition(cpiplusPct);
+                
+                var zones = [
+                    // Upper zone (above upper bound)
+                    {
+                        top: 0,
+                        bottom: upperPos,
+                        color: decisionType === 'skip' ? '#fff3cd' : '#f8d7da',
+                        type: decisionType === 'skip' ? 'skip' : 'rebalance'
+                    },
+                    // Safe zone (between bounds)
+                    {
+                        top: upperPos,
+                        bottom: lowerPos,
+                        color: '#d4edda',
+                        type: 'safe'
+                    },
+                    // Lower zone (below lower bound)
+                    {
+                        top: lowerPos,
+                        bottom: 100,
+                        color: '#f8d7da',
+                        type: 'rebalance'
+                    }
+                ];
+                
+                var htmlParts = [];
+                
+                zones.forEach(function(zone) {
+                    var borderStyle = zone.type === 'skip' ? 'dashed' : 'solid';
+                    var borderColor = zone.type === 'safe' ? '#28a745' : (zone.type === 'skip' ? '#ffc107' : '#dc3545');
+                    htmlParts.push(
+                        '<div style="position:absolute;left:50px;right:20px;top:' + zone.top + '%;bottom:' + (100 - zone.bottom) + '%;background:' + zone.color + ';opacity:0.4;border:2px ' + borderStyle + ' ' + borderColor + ';border-radius:4px;" aria-hidden="true"></div>'
+                    );
+                });
+                
+                // Band lines with labels
                 htmlParts.push(
-                    '<div style="position:absolute;left:50px;right:20px;top:' + zone.top + '%;bottom:' + (100 - zone.bottom) + '%;background:' + zone.color + ';opacity:0.4;border:2px ' + borderStyle + ' ' + borderColor + ';border-radius:4px;" aria-hidden="true"></div>'
+                    '<div class="band-line lower" style="top:' + lowerPos + '%;" aria-hidden="true">',
+                    '  <span class="band-label" style="color:#856404;">' + lowerBound + '% Lower</span>',
+                    '</div>',
+                    '<div class="band-line target" style="top:' + targetPos + '%;" aria-hidden="true">',
+                    '  <span class="band-label" style="color:#155724;">' + CONFIG.TARGET_ALLOCATION + '% Target</span>',
+                    '</div>',
+                    '<div class="band-line upper" style="top:' + upperPos + '%;" aria-hidden="true">',
+                    '  <span class="band-label" style="color:#721c24;">' + upperBound + '% Upper</span>',
+                    '</div>'
                 );
-            });
+                
+                // Current position dot
+                var positionColors = {
+                    'no-action': '#28a745',
+                    'skip': '#ffc107',
+                    'rebalance': '#dc3545',
+                    'urgent': '#dc3545'
+                };
+                var dotColor = positionColors[decisionType] || '#dc3545';
+                
+                htmlParts.push(
+                    '<div class="current-position" style="top:' + currentPos + '%;left:calc(50px + ((100% - 70px) / 2));background:' + dotColor + ';" aria-hidden="true">',
+                    '  <div class="position-label" style="background:' + dotColor + ';">' + cpiplusPct.toFixed(1) + '%</div>',
+                    '</div>'
+                );
+                
+                // Update diagram ARIA label for screen readers
+                diagram.setAttribute('aria-label', 
+                    'Allocation band diagram. Current CPIplus: ' + cpiplusPct.toFixed(1) + '%. ' +
+                    'Lower bound: ' + lowerBound + '%. Target: ' + CONFIG.TARGET_ALLOCATION + '%. Upper bound: ' + upperBound + '%. ' +
+                    'Decision: ' + (decisionType === 'no-action' ? 'No action needed' : decisionType) + '.'
+                );
+                
+                diagram.innerHTML = htmlParts.join('');
+            }
             
-            // Band lines with labels
-            htmlParts.push(
-                '<div class="band-line lower" style="top:' + lowerPos + '%;" aria-hidden="true">',
-                '  <span class="band-label" style="color:#856404;">' + lowerBound + '% Lower</span>',
-                '</div>',
-                '<div class="band-line target" style="top:' + targetPos + '%;" aria-hidden="true">',
-                '  <span class="band-label" style="color:#155724;">' + CONFIG.TARGET_ALLOCATION + '% Target</span>',
-                '</div>',
-                '<div class="band-line upper" style="top:' + upperPos + '%;" aria-hidden="true">',
-                '  <span class="band-label" style="color:#721c24;">' + upperBound + '% Upper</span>',
-                '</div>'
-            );
+            // ═══════════════════════════════════════════════════
+            // EVENT LISTENERS
+            // ═══════════════════════════════════════════════════
             
-            // Current position dot
-            var positionColors = {
-                'no-action': '#28a745',
-                'skip': '#ffc107',
-                'rebalance': '#dc3545',
-                'urgent': '#dc3545'
-            };
-            var dotColor = positionColors[decisionType] || '#dc3545';
-            
-            htmlParts.push(
-                '<div class="current-position" style="top:' + currentPos + '%;left:calc(50px + ((100% - 70px) / 2));background:' + dotColor + ';" aria-hidden="true">',
-                '  <div class="position-label" style="background:' + dotColor + ';">' + cpiplusPct.toFixed(1) + '%</div>',
-                '</div>'
-            );
-            
-            // Update diagram ARIA label for screen readers
-            diagram.setAttribute('aria-label', 
-                'Allocation band diagram. Current CPIplus: ' + cpiplusPct.toFixed(1) + '%. ' +
-                'Lower bound: ' + lowerBound + '%. Target: ' + CONFIG.TARGET_ALLOCATION + '%. Upper bound: ' + upperBound + '%. ' +
-                'Decision: ' + (decisionType === 'no-action' ? 'No action needed' : decisionType) + '.'
-            );
-            
-            diagram.innerHTML = htmlParts.join('');
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // EVENT LISTENERS
-        // ═══════════════════════════════════════════════════
-        
-        function setupEventListeners() {
-            // Portfolio type change
-            elements.portfolioType.addEventListener('change', handlePortfolioChange);
-            
-            // Portfolio value change — debounced to avoid rapid recalc on typing
-            var valueTimeout;
-            elements.portfolioValue.addEventListener('input', function() {
-                clearTimeout(valueTimeout);
-                valueTimeout = setTimeout(handlePortfolioChange, 300);
-            });
-            elements.portfolioValue.addEventListener('change', function() {
-                clearTimeout(valueTimeout);
-                handlePortfolioChange();
-            });
-            
-            // Range sliders
-            elements.drawdownRate.addEventListener('input', function() { updateVisualization(); });
-            elements.lowerBound.addEventListener('input', function() { updateVisualization(); });
-            elements.upperBound.addEventListener('input', function() { updateVisualization(); });
-            elements.skipThreshold.addEventListener('input', function() { updateVisualization(); });
-            
-            elements.cpiplusAlloc.addEventListener('input', manualCPIplusChange);
-            elements.growthReturn.addEventListener('input', manualReturnChange);
-            
-            // Skip toggle
-            elements.skipToggle.addEventListener('click', toggleSkip);
-            elements.skipToggle.addEventListener('keydown', function(e) {
-                if (e.key === ' ' || e.key === 'Enter') {
-                    e.preventDefault();
-                    toggleSkip();
-                }
-            });
-            
-            // Scenario preset buttons
-            elements.presetButtons.forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var scenario = btn.getAttribute('data-scenario');
-                    if (scenario) {
-                        loadScenario(scenario);
+            function setupEventListeners() {
+                // Portfolio type change
+                elements.portfolioType.addEventListener('change', handlePortfolioChange);
+                
+                // Portfolio value change — debounced to avoid rapid recalc on typing
+                var valueTimeout;
+                elements.portfolioValue.addEventListener('input', function() {
+                    clearTimeout(valueTimeout);
+                    valueTimeout = setTimeout(handlePortfolioChange, 300);
+                });
+                elements.portfolioValue.addEventListener('change', function() {
+                    clearTimeout(valueTimeout);
+                    handlePortfolioChange();
+                });
+                
+                // Range sliders
+                elements.drawdownRate.addEventListener('input', function() { updateVisualization(); });
+                elements.lowerBound.addEventListener('input', function() { updateVisualization(); });
+                elements.upperBound.addEventListener('input', function() { updateVisualization(); });
+                elements.skipThreshold.addEventListener('input', function() { updateVisualization(); });
+                
+                elements.cpiplusAlloc.addEventListener('input', manualCPIplusChange);
+                elements.growthReturn.addEventListener('input', manualReturnChange);
+                
+                // Skip toggle
+                elements.skipToggle.addEventListener('click', toggleSkip);
+                elements.skipToggle.addEventListener('keydown', function(e) {
+                    if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault();
+                        toggleSkip();
                     }
                 });
-            });
-        }
-        
-        // ═══════════════════════════════════════════════════
-        // INITIALISATION
-        // ═══════════════════════════════════════════════════
-        
-        function init() {
-            cacheElements();
-            setupEventListeners();
-            handlePortfolioChange();
-        }
-        
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-    })();
-</script>
-```
-
+                
+                // Scenario preset buttons
+                elements.presetButtons.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        var scenario = btn.getAttribute('data-scenario');
+                        if (scenario) {
+                            loadScenario(scenario);
+                        }
+                    });
+                });
+            }
+            
+            // ═══════════════════════════════════════════════════
+            // INITIALISATION
+            // ═══════════════════════════════════════════════════
+            
+            function init() {
+                cacheElements();
+                setupEventListeners();
+                handlePortfolioChange();
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
 </body>
 </html>
